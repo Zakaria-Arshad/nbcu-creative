@@ -1,0 +1,44 @@
+.fixed_orange_bar {
+    position: fixed;
+    background-color: #ff551a;
+    height: 20px;
+    width: 100%; 
+    top: 0; 
+    left: 0; 
+}
+
+.fixed_container {
+    position: fixed;
+    top: 10%;
+    height: 100px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.nbcu_logo {
+    height: 27.06vh; /* responsive to viewport height */
+    margin-left: 4.5vw; /* responsive to viewport width */
+    
+}
+
+.navbar_icon {
+    width: 90px; /* circle diameter */
+    height: 90px; /* circle diameter */
+    border: 5px solid black; /* border */
+    border-radius: 50%; /* circular border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 3vw;}
+
+.menu_line {
+    height: 5px; /* thickness */
+    width: 75%; 
+    background-color: black; 
+    margin: 4px 0; /* spacing */
+    border-radius: 5px;
+  }
