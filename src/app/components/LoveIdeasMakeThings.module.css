@@ -14,8 +14,8 @@
 }
 
 .line {
-    background-color: #ff551a; /* This sets the line color */
-    height: 1px; /* This sets the line thickness */
+    background-color: #ff551a; 
+    height: 1px; 
     border: none; 
     width: 35%; 
     margin-top: 30px;

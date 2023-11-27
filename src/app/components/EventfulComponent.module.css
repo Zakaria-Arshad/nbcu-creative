@@ -10,7 +10,7 @@
 /* image_container and image styles not currently necessary in file*/
 .blue_stripe {
     position: absolute;
-    right: 11px;
+    right: 3px;
     opacity: 1; 
     mix-blend-mode: multiply;  /* blend mode */
     transform: matrix(1, 0, 0, 1, 0, 0);  
