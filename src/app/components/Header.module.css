@@ -1,10 +1,11 @@
-.fixed_orange_bar {
+.fixed_bar {
     position: fixed;
     background-color: #ff551a;
     height: 20px;
-    width: 100%; 
-    top: 0; 
-    left: 0; 
+    width: 98.95%; /*adjusting right side of bar to match other elements*/
+    top: 0;
+    z-index: 10; /*keeps bar on top of other elements*/
+
 }
 
 .fixed_container {
@@ -15,6 +16,7 @@
     left: 0;
     display: flex;
     justify-content: space-between;
+    z-index: 10;
 
 }
 
@@ -33,11 +35,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-right: 3vw;}
+    margin-right: 2vw;}
 
 .menu_line {
     height: 5px; /* thickness */
-    width: 75%; 
+    width: 55%; 
     background-color: black; 
     margin: 4px 0; /* spacing */
     border-radius: 5px;
