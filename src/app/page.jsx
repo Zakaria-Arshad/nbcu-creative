@@ -2,6 +2,7 @@ import styles from './page.module.css'
 import Header from './components/Header'
 import FirstComponent from './components/FirstComponent'
 import EventfulComponent from './components/EventfulComponent'
+import LoveIdeasMakeThings from './components/LoveIdeasMakeThings'
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
     <Header />
     <FirstComponent />
     <EventfulComponent />
+    <LoveIdeasMakeThings />
     </>
   )
 }
