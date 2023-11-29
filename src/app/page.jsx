@@ -6,6 +6,9 @@ import LoveIdeasMakeThings from './components/LoveIdeasMakeThings'
 import ThinkersComponent from './components/ThinkersComponent'
 import WeHelpBusinessesGrow from './components/WeHelpBusinessesGrow'
 import ConnectedComponent from './components/ConnectedComponent'
+import OurPartners from './components/OurPartners'
+import BigFansComponent from './components/BigFansComponent'
+import NoYadaYada from './components/NoYadaYada'
 
 export default function Home() {
   return (
@@ -17,6 +20,9 @@ export default function Home() {
     <ThinkersComponent />
     <WeHelpBusinessesGrow />
     <ConnectedComponent />
+    <OurPartners />
+    <BigFansComponent />
+    <NoYadaYada />  
     </>
   )
 }
