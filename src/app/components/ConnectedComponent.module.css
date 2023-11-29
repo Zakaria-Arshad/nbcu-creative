@@ -47,7 +47,7 @@
 .button_container {
     margin-top: 50px;
     height: 120px;
-    width: 650px;
+    width: 815px; /* This adjusts where the view button appears */
 }
 
 .view_button {
