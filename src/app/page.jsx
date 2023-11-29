@@ -4,6 +4,7 @@ import FirstComponent from './components/FirstComponent'
 import EventfulComponent from './components/EventfulComponent'
 import LoveIdeasMakeThings from './components/LoveIdeasMakeThings'
 import ThinkersComponent from './components/ThinkersComponent'
+import WeHelpBusinessesGrow from './components/WeHelpBusinessesGrow'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
     <EventfulComponent />
     <LoveIdeasMakeThings />
     <ThinkersComponent />
+    <WeHelpBusinessesGrow />
     </>
   )
 }
