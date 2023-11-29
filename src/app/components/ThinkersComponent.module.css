@@ -1,0 +1,63 @@
+.container {
+    /*background-color: bisque;*/ /*for testing*/
+    min-height: 950px; /* can change */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+/* image_container and image styles not currently necessary in file*/
+.blue_stripe {
+    position: absolute;
+    right: 4px;
+    opacity: 1; 
+    mix-blend-mode: multiply;  /* blend mode */
+    transform: matrix(1, 0, 0, 1, 0, 0);  
+}
+
+.text_container {
+    position: absolute;
+    min-height: 200px;
+    /*background-color: aqua;*/ /*for testing*/
+    left: 9%;
+    bottom: 25%;
+}
+
+.title_container {
+    text-align: left;
+    font-size: 8vw;
+    font-weight: bold;
+}
+
+.title_1, .title_2 {
+    margin-bottom: -50px; /* squish text together */
+}
+
+.title_3 {
+    margin-bottom: 5px;
+}
+
+.subtitle_container {
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 500;
+}
+
+.subtitle_1 {
+    margin-bottom: -12px;
+}
+
+.button_container {
+    margin-top: 50px;
+    height: 120px;
+    width: 650px;
+}
+
+.view_button {
+    background-color: #ff551a;
+    border-radius: 115px;
+    height: 120px;
+    width: 120px;
+    float: left;
+}
