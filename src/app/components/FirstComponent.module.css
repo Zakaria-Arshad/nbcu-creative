@@ -2,12 +2,13 @@
     background-image: url(https://d2mf4l4ba7pnlp.cloudfront.net/images/greyslantbckgrnd.svg);
     background-repeat: no-repeat;
     background-position: left top;
-    background-size: cover;
+    background-size: contain;
     min-height: 1150px;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .message_container {
@@ -45,10 +46,36 @@
     display: flex;
     justify-content: center; /* center horizontally */
     align-items: center; /* center vertically */
+    height: 25%;
+    width: 15%;
+    margin-left: 50%; /* move right */
+    margin-top: 15%; /* move down */
 }
+
 .image {
-    height: 300px;
-    width: 150px;
-    margin-left: 14%;
-    margin-top: 6%;
+    box-sizing: content-box; /* allows arrow to fit inside */
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .container {
+        min-height: 350px; /* Adjust as per design requirement */
+        background-size: cover;
+    }
+
+    .message_container {
+        width: 60vw; 
+        height: auto; 
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    .motto {
+        font-size: 8vw;
+        letter-spacing: -2px;
+        margin-top: 0px;
+        word-wrap: break-word;
+    }
 }

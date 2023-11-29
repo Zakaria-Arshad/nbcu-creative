@@ -26,7 +26,7 @@
 
 .title_container {
     text-align: right;
-    font-size: 8vw;
+    font-size: clamp(2rem, 8vw, 5rem);
     font-weight: bold;
 }
 

@@ -4,12 +4,6 @@
 import { React, useState } from 'react';
 import styles from './EventfulComponent.module.css'
 
-// src="https://d2mf4l4ba7pnlp.cloudfront.net/images/img2.png" for background
-// src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe2.png" for blue stripe
-// make a full container for the background
-// then put the components inside of it
-
-// to add in the future: conditional rendering for certain components and a prop for rendering animation
 export default function EventfulComponent() {
   const [enable, setEnable] = useState(false) 
 
