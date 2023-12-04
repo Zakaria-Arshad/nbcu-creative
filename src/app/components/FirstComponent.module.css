@@ -58,9 +58,9 @@
     height: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .container {
-        height: 350px; /* Adjust as per design requirement */
+        height: 600px; /* Adjust as per design requirement */
         background-size: cover;
     }
 

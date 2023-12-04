@@ -1,16 +1,26 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import styles from './FirstComponent.module.css';
 import Head from 'next/head';
 
 
 export default function FirstComponent() {
+    const messageVariants = {
+        hidden: { opacity: 0, y: 20 }, // start with opacity 0 (invisible) and 20px down
+        visible: (custom) => ({
+            opacity: 1,
+            y: 0,
+            transition: { delay: custom * 0.3, duration: .3 } // delay based on the index
+        }),
+    };
+
     const [isWideScreen, setIsWideScreen] = useState(true); // Assuming true by default
 
     useEffect(() => {
         // Function to update the state based on window width
-        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 600);
+        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 800);
 
         // Set the initial state based on the current window width
         checkScreenSize();
@@ -26,32 +36,37 @@ export default function FirstComponent() {
         <>
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            {/* other head elements */}
         </Head>
         <div className={styles.container}>
             <div className={styles.message_container}>
                 {isWideScreen && (
                     <>
-                        <div className={styles.message}>
-                            we&rsquo;re obsessed. inspired. fun. connected.
-                        </div>
-                        <div className={styles.message}>
-                            builders. fans. solvers. social. friendly.
-                        </div>
-                        <div className={styles.message}>
-                            digital. humble. disruptive. tuned in.
-                        </div>
-                        <div className={styles.message}>
-                            ambitious. curious. not famous.
-                        </div>
-                        <div className={styles.message}>
-                            ambidextrous. strategic. partners.
-                        </div>
-                    </>
+                    {["we're obsessed. inspired. fun. connected.",
+                      'builders. fans. solvers. social. friendly.',
+                      'digital. humble. disruptive. tuned in.',
+                      'ambitious. curious. not famous.',
+                      'ambidextrous. strategic. partners.'].map((text, index) => (
+                        <motion.div 
+                            className={styles.message}
+                            variants={messageVariants}
+                            initial="hidden"
+                            animate="visible"
+                            custom={index} // passing index as custom prop for delay calculation
+                            key={index}
+                        >
+                            {text}
+                        </motion.div>
+                    ))}
+                </>
                 )}
-                <div className={styles.motto}>
+                <motion.div 
+                    className={styles.motto}
+                    variants={messageVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={isWideScreen ? 5 : 0}>
                     we&rsquo;re in-house. and all in.
-                </div>
+                </motion.div>
                 <div className={styles.image_container}>
                     <img className={styles.image} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/arrowdown.svg"></img>
                 </div>
