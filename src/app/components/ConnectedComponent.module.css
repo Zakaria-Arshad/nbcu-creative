@@ -1,27 +1,39 @@
 .container {
-    /*background-color: bisque;*/ /*for testing*/
-    min-height: 950px; /* can change */
+    min-height: 50vh; /* can change */
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     position: relative;
 }
-/* image_container and image styles not currently necessary in file*/
-.blue_stripe {
-    position: absolute;
-    right: 3px;
-    opacity: 1; 
-    mix-blend-mode: multiply;  /* blend mode */
-    transform: matrix(1, 0, 0, 1, 0, 0);  
+
+.image_container {
+    min-height: 50vh;
+    width: 100%;
+    position: relative;
+}
+
+.image {
+    width: 100%;
 }
 
 .text_container {
     position: absolute;
-    min-height: 200px;
-    /*background-color: aqua;*/ /*for testing*/
-    right: 10%;
-    bottom: 24%;
+    width: 55vw;
+    height: 40vw;
+    left: 33%;
+    top: 20%;
+    z-index: 5;
+}
+
+/* image_container and image styles not currently necessary in file*/
+.blue_stripe {
+    position: absolute;
+    right: .1px;
+    opacity: 1; 
+    mix-blend-mode: multiply;  /* blend mode */
+    transform: matrix(1, 0, 0, 1, 0, 0);  
+    width: 100%;
 }
 
 .title_container {
@@ -31,7 +43,7 @@
 }
 
 .title_1 {
-    margin-bottom: -50px; /* squish text together */
+    margin-bottom: -5%; /* squish text together */
 }
 
 .subtitle_container {
@@ -41,13 +53,13 @@
 }
 
 .subtitle_1 {
-    margin-bottom: -12px;
+    margin-bottom: -2%;
 }
 
 .button_container {
     margin-top: 50px;
     height: 120px;
-    width: 815px; /* This adjusts where the view button appears */
+    width: 100%;
 }
 
 .view_button {
@@ -56,4 +68,25 @@
     height: 120px;
     width: 120px;
     float: right;
+}
+
+@media(max-width: 600px) {
+    .view_button {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+@media(max-width: 800px) {
+    .view_button {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .view_button {
+        height: 100px;
+        width: 100px;
+    }
 }

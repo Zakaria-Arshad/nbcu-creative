@@ -2,10 +2,9 @@
     position: fixed;
     background-color: #ff551a;
     height: 20px;
-    width: 98.75%; /*adjusting right side of bar to match other elements*/
+    width: 100%; /*adjusting right side of bar to match other elements*/
     top: 0;
     z-index: 10; /*keeps bar on top of other elements*/
-
 }
 
 .fixed_container {

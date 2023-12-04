@@ -1,9 +1,9 @@
 .container {
     background-image: url(https://d2mf4l4ba7pnlp.cloudfront.net/images/greyslantbckgrnd.svg);
     background-repeat: no-repeat;
-    background-position: 60% top;
-    background-size: contain;
-    min-height: 1150px;
+    background-position: left top;
+    background-size: cover;
+    height: 1150px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -60,7 +60,7 @@
 
 @media (max-width: 600px) {
     .container {
-        min-height: 350px; /* Adjust as per design requirement */
+        height: 350px; /* Adjust as per design requirement */
         background-size: cover;
     }
 

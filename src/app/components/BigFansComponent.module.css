@@ -1,27 +1,41 @@
 .container {
-    /*background-color: bisque;*/ /*for testing*/
-    min-height: 950px; /* can change */
+    min-height: 50vh; /* can change */
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     position: relative;
 }
-/* image_container and image styles not currently necessary in file*/
-.blue_stripe {
-    position: absolute;
-    right: 3px;
-    opacity: 1; 
-    mix-blend-mode: multiply;  /* blend mode */
-    transform: matrix(1, 0, 0, 1, 0, 0);  
+
+.image_container {
+    min-height: 50vh;
+    width: 100%;
+    position: relative;
 }
 
 .text_container {
     position: absolute;
-    min-height: 200px;
-    /*background-color: aqua;*/ /*for testing*/
-    left: 9%;
-    bottom: 37%;
+    width: 55vw;
+    height: 40vw;
+    left: 8%;
+    bottom: 13%;
+    z-index: 5;
+}
+
+
+.image {
+    width: 100%;
+}
+
+/* image_container and image styles not currently necessary in file*/
+.blue_stripe {
+    position: absolute;
+    right: .1px;
+    opacity: 1; 
+    mix-blend-mode: multiply;  /* blend mode */
+    transform: matrix(1, 0, 0, 1, 0, 0);  
+    width: 100%;
 }
 
 .title_container {
@@ -31,7 +45,7 @@
 }
 
 .title_1 {
-    margin-bottom: -50px; /* squish text together */
+    margin-bottom: -5%; /* squish text together */
 }
 
 .subtitle_container {
@@ -41,19 +55,40 @@
 }
 
 .subtitle_1 {
-    margin-bottom: -12px;
+    margin-bottom: -2%;
 }
 
 .button_container {
     margin-top: 50px;
     height: 120px;
-    width: 650px;
+    width: 100%;
 }
 
 .view_button {
     background-color: #ff551a;
-    border-radius: 115px;
+    border-radius: 120px;
     height: 120px;
     width: 120px;
     float: left;
+}
+
+@media(max-width: 600px) {
+    .view_button {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+@media(max-width: 800px) {
+    .view_button {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .view_button {
+        height: 100px;
+        width: 100px;
+    }
 }

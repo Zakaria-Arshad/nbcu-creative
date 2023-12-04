@@ -17,9 +17,9 @@
     position: absolute;
     width: 55vw;
     height: 40vw;
-    left: 30%;
+    left: 33%;
     top: 20%;
-    z-index: 20;
+    z-index: 5;
 }
 
 .image {
@@ -69,6 +69,7 @@
     width: 120px;
     float: right;
 }
+
 @media(max-width: 600px) {
     .view_button {
         height: 60px;
