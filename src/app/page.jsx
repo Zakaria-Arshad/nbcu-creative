@@ -11,6 +11,7 @@ import BigFansComponent from './components/BigFansComponent'
 import NoYadaYada from './components/NoYadaYada'
 import Footer from './components/Footer'
 // 1518 width
+// test commit
 export default function Home() {
   return (
     <>
