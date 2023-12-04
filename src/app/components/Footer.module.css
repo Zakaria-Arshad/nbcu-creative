@@ -1,0 +1,59 @@
+.diagonal_piece {
+    position: relative;
+    background-color: #64cced;
+    height: 230px;
+    transform: skewY(-8.5deg);
+    transform-origin: bottom right;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    background-color: #64cced;
+    min-height: 1100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title_container {
+    min-height: 25%;
+    margin-top: 5%;
+    margin-left: 10%;
+    text-align: left;
+    font-size: 6vw;
+    font-weight: bold;
+    color: white;
+}
+
+.subtitle_container {
+    margin-left: 10%;
+    text-align: left;
+    font-size: 1.5vw;
+    color: black;
+    width: 55%;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+}
+
+.details_container {
+    margin-left: 10%;
+    text-align: left;
+    font-size: 1.5vw;
+    color: white;
+    width: 35%;
+}
+
+.details {
+    line-height: 1.6;
+}
+
+.copyright_container {
+    margin-top: 3%;
+    margin-left: 10%;
+    text-align: left;
+    font-size: .6vw;
+    color: black;
+    width: 50%;
+}

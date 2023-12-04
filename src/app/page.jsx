@@ -9,6 +9,7 @@ import ConnectedComponent from './components/ConnectedComponent'
 import OurPartners from './components/OurPartners'
 import BigFansComponent from './components/BigFansComponent'
 import NoYadaYada from './components/NoYadaYada'
+import Footer from './components/Footer'
 // 1518 width
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
     <OurPartners />
     <BigFansComponent />
     <NoYadaYada />  
+    <Footer />
     </>
   )
 }

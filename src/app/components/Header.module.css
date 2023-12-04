@@ -55,6 +55,7 @@
     .navbar_icon {
         height: 12vw;
         width: 12vw;
+        border: 3px solid black;
     }
 
 

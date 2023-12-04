@@ -27,7 +27,7 @@ export default function FirstComponent() {
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             {/* other head elements */}
-      </Head>
+        </Head>
         <div className={styles.container}>
             <div className={styles.message_container}>
                 {isWideScreen && (
