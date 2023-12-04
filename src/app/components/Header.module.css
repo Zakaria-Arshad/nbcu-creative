@@ -22,10 +22,13 @@
 .nbcu_logo {
     height: 12vw; /* responsive to viewport height */
     width: auto;
-    margin-left: 4.5vw; /* responsive to viewport width */
-    
+    margin-left: 4.5vw; /* responsive to viewport width */   
 }
 
+.nbcu_logo:hover svg {
+    fill: #ff551a; /* Color change on hover */
+  }
+  
 .navbar_icon {
     width: 6.5vw; /* circle diameter */
     height: 6.5vw; /* circle diameter */
