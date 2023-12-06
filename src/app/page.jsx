@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './page.module.css'
 import Header from './components/Header'
 import FirstComponent from './components/FirstComponent'
@@ -10,14 +12,20 @@ import OurPartners from './components/OurPartners'
 import BigFansComponent from './components/BigFansComponent'
 import NoYadaYada from './components/NoYadaYada'
 import Footer from './components/Footer'
-// 1518 width
-// test commit
+
+import { React, useRef } from 'react'
 export default function Home() {
+  const EventfulComponentRef = useRef(null)
+
+  function scrollToComponent() {
+    EventfulComponentRef.current?.scrollIntoView({ behavior: 'smooth' }); // safe for null
+  }
+
   return (
     <>
     <Header />
-    <FirstComponent />
-    <EventfulComponent />
+    <FirstComponent onImageClick={scrollToComponent}/>
+    <EventfulComponent ref={EventfulComponentRef}/>
     <LoveIdeasMakeThings />
     <ThinkersComponent />
     <WeHelpBusinessesGrow />

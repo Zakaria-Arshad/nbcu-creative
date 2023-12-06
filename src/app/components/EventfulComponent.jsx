@@ -1,11 +1,11 @@
 
 'use client' // necessary to useState. client component instead of server component
 
-import { React, useState } from 'react';
+import { React, useState, forwardRef } from 'react';
 import styles from './EventfulComponent.module.css'
 import { motion } from 'framer-motion';
 
-export default function EventfulComponent() {
+const EventfulComponent = forwardRef((props, ref) => {
   const [enable, setEnable] = useState(false) 
 
   const allVariants = {
@@ -14,7 +14,7 @@ export default function EventfulComponent() {
   }
 
   return (
-    <div className={styles.container}>
+    <div ref={ref} className={styles.container}>
       <div className={styles.image_container}>
         <motion.img
         initial={{ y: 50 }}
@@ -61,4 +61,6 @@ export default function EventfulComponent() {
       </div>
     </div>
   )
-}
+});
+
+export default EventfulComponent;

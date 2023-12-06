@@ -6,7 +6,7 @@ import styles from './FirstComponent.module.css';
 import Head from 'next/head';
 
 
-export default function FirstComponent() {
+export default function FirstComponent( {onImageClick} ) {
     const messageVariants = {
         hidden: { opacity: 0, y: 20 }, // start with opacity 0 (invisible) and 20px down
         visible: (custom) => ({
@@ -68,7 +68,9 @@ export default function FirstComponent() {
                     we&rsquo;re in-house. and all in.
                 </motion.div>
                 <div className={styles.image_container}>
-                    <img className={styles.image} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/arrowdown.svg"></img>
+                    <img className={styles.image} 
+                        src="https://d2mf4l4ba7pnlp.cloudfront.net/images/arrowdown.svg"
+                        onClick={onImageClick}></img>
                 </div>
             </div>
         </div>
