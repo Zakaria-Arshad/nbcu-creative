@@ -7,6 +7,13 @@ import Head from 'next/head';
 
 
 export default function FirstComponent( {onImageClick} ) {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+      }, []); // scrolls to top on load/refresh
+
     const messageVariants = {
         hidden: { opacity: 0, y: 20 }, // start with opacity 0 (invisible) and 20px down
         visible: (custom) => ({
