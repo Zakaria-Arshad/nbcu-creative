@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react"
-import Head from "next/head";
+import Link from "next/link"
 import { motion } from "framer-motion"
 import styles from './Header.module.css';
 
@@ -36,6 +36,7 @@ export default function Header() {
                 animate="visible">
             </motion.div> {/*This is the orange bar*/}
             <div className={styles.fixed_container}>
+            <Link href="/">
                 <motion.img 
                     className={styles.nbcu_logo} 
                     src="https://d2mf4l4ba7pnlp.cloudfront.net/images/verticallogo.svg"
@@ -46,6 +47,7 @@ export default function Header() {
                     custom={1}
                     >
                 </motion.img>
+            </Link>
                 <motion.div 
                     className={styles.navbar_icon}
                     variants={iconVariants}

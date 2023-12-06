@@ -40,10 +40,6 @@ export default function FirstComponent( {onImageClick} ) {
     }, []);
 
     return (
-        <>
-        <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
         <div className={styles.container}>
             <div className={styles.message_container}>
                 {isWideScreen && (
@@ -81,7 +77,6 @@ export default function FirstComponent( {onImageClick} ) {
                 </div>
             </div>
         </div>
-        </>
     );
 }
 
