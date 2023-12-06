@@ -63,4 +63,6 @@ const EventfulComponent = forwardRef((props, ref) => {
   )
 });
 
+EventfulComponent.displayName = 'EventfulComponent'; // Add this line
+
 export default EventfulComponent;

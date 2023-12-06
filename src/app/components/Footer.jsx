@@ -36,13 +36,13 @@ export default function Footer() {
                         We know the players. We get the culture. We know which elevators to take.
                     </p>
                     <p className={styles.subtitle}> 
-                        You'll collaborate with a global mashup of thinkers and doers — from Chile to Sweden; from South Korea to South Africa. And, yes, even Long Island.
+                        You&apos;ll collaborate with a global mashup of thinkers and doers — from Chile to Sweden; from South Korea to South Africa. And, yes, even Long Island.
                     </p>
                     <p className={styles.subtitle}> 
                         We do digital, off-air collateral, brand identity, launches, branded experiences, campaigns, key art, OOH, B2B, B2C, B2E. Full service from start to finish.
                     </p>
                     <p className={styles.subtitle}> 
-                        You've probably seen our work but didn't know it was us. Now you're like “Oh, you guys did that?"
+                        You&apos;ve probably seen our work but didn&apos;t know it was us. Now you&apos;re like &quot;Oh, you guys did that?&quot;
                     </p>
                 </motion.div>
                 <motion.div 
