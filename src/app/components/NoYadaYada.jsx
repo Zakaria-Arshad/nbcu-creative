@@ -1,28 +1,75 @@
 import React from 'react';
-import styles from './NoYadaYada.module.css'
+import { motion } from 'framer-motion';
+import styles from './NoYadaYada.module.css';
 
-export default function OurPartners() {
+export default function NoYadaYada() {
+    // Text animation variants
+    const textVariants = {
+        offScreen: { y: 50, opacity: 0 },
+        onScreen: { y: 0, opacity: 1, transition: { duration: 1 } }
+    };
+
+    // Line animation variants
+    const lineVariants = {
+        offScreen: { width: '0%' },
+        onScreen: { width: '35%', transition: { duration: 1 } }
+    };
 
     return (
         <div className={styles.container}>
-            <div className={styles.text}>
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 no yada-yada
-            </div>
+            </motion.div>
             <br />
-            <hr className={styles.line}></hr>
-            <div className={styles.text}>
+            <motion.hr 
+                className={styles.line}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={lineVariants}
+            />
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 no ego trips
-            </div>
+            </motion.div>
             <br />
-            <hr className={styles.line}></hr>
-            <div className={styles.text}>
+            <motion.hr 
+                className={styles.line}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={lineVariants}
+            />
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 no divas
-            </div>
+            </motion.div>
             <br />
-            <hr className={styles.line}></hr>
-            <div className={styles.text}>
+            <motion.hr 
+                className={styles.line}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={lineVariants}
+            />
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 sound good to you?
-            </div>
+            </motion.div>
         </div>
     );
 };

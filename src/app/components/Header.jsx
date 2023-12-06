@@ -28,10 +28,6 @@ export default function Header() {
     }
 
     return (
-        <>
-        <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
         <div>
             <motion.div 
                 className={styles.fixed_bar}
@@ -62,8 +58,6 @@ export default function Header() {
                     <span className={styles.menu_line}></span>
                 </motion.div> 
             </div>
-        </div>
-        </>
-            
+        </div>        
     )
 }

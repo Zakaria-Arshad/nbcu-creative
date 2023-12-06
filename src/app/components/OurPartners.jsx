@@ -1,31 +1,69 @@
 import React from 'react';
-import styles from './OurPartners.module.css'
+import { motion } from 'framer-motion';
+import styles from './OurPartners.module.css';
 
 export default function OurPartners() {
+    // Text animation variants
+    const textVariants = {
+        offScreen: { y: 50, opacity: 0 },
+        onScreen: { y: 0, opacity: 1, transition: { duration: 1 } }
+    };
+
+    // Line animation variants
+    const lineVariants = {
+        offScreen: { width: '0%' },
+        onScreen: { width: '35%', transition: { duration: 1 } }
+    };
 
     return (
         <div className={styles.container}>
-            <div className={styles.text}>
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 our partners span
                 <br />
                 the company
-            </div>
+            </motion.div>
             <br />
-            <hr className={styles.line}></hr>
-            <div className={styles.text}>
+            <motion.hr 
+                className={styles.line}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={lineVariants}
+            />
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 which makes us
                 <br />
                 look good
-            </div>
+            </motion.div>
             <br />
-            <hr className={styles.line}></hr>
-            <div className={styles.text}>
+            <motion.hr 
+                className={styles.line}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={lineVariants}
+            />
+            <motion.div 
+                className={styles.text}
+                initial="offScreen"
+                whileInView="onScreen"
+                variants={textVariants}
+            >
                 so do lots of 
                 <br />
                 industry awards for
                 <br />
                 creative excellence
-            </div>
+            </motion.div>
         </div>
     );
 };
+
