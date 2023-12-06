@@ -5,7 +5,7 @@ import styles from './Footer.module.css';
 export default function Footer() {
     // Animation variants
     const variants = {
-        offScreen: { y: 30, opacity: 0 },
+        offScreen: { y: 40, opacity: 0 },
         onScreen: { y: 0, opacity: 1, transition: { duration: 1.5 } }
     };
 
@@ -35,7 +35,15 @@ export default function Footer() {
                     <p className={styles.subtitle}> 
                         We know the players. We get the culture. We know which elevators to take.
                     </p>
-                    {/* ...other subtitles... */}
+                    <p className={styles.subtitle}> 
+                        You'll collaborate with a global mashup of thinkers and doers — from Chile to Sweden; from South Korea to South Africa. And, yes, even Long Island.
+                    </p>
+                    <p className={styles.subtitle}> 
+                        We do digital, off-air collateral, brand identity, launches, branded experiences, campaigns, key art, OOH, B2B, B2C, B2E. Full service from start to finish.
+                    </p>
+                    <p className={styles.subtitle}> 
+                        You've probably seen our work but didn't know it was us. Now you're like “Oh, you guys did that?"
+                    </p>
                 </motion.div>
                 <motion.div 
                     className={styles.details_container}

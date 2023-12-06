@@ -25,10 +25,6 @@
     margin-left: 4.5vw; /* responsive to viewport width */   
 }
 
-.nbcu_logo:hover svg {
-    fill: #ff551a; /* Color change on hover */
-  }
-  
 .navbar_icon {
     width: 6.5vw; /* circle diameter */
     height: 6.5vw; /* circle diameter */
@@ -47,7 +43,8 @@
     background-color: black; 
     margin: 4px 0; /* spacing */
     border-radius: 5px;
-  }
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
 
   @media (max-width: 600px) {
     .nbcu_logo {
