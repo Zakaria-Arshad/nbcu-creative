@@ -14,7 +14,7 @@ export default function FirstComponent( {onImageClick} ) {
           });
       }, []); // scrolls to top on load/refresh
 
-    const messageVariants = {
+    const allVariants = {
         hidden: { opacity: 0, y: 20 }, // start with opacity 0 (invisible) and 20px down
         visible: (custom) => ({
             opacity: 1,
@@ -51,7 +51,7 @@ export default function FirstComponent( {onImageClick} ) {
                       'ambidextrous. strategic. partners.'].map((text, index) => (
                         <motion.div 
                             className={styles.message}
-                            variants={messageVariants}
+                            variants={allVariants}
                             initial="hidden"
                             animate="visible"
                             custom={index} // passing index as custom prop for delay calculation
@@ -64,17 +64,23 @@ export default function FirstComponent( {onImageClick} ) {
                 )}
                 <motion.div 
                     className={styles.motto}
-                    variants={messageVariants}
+                    variants={allVariants}
                     initial="hidden"
                     animate="visible"
                     custom={isWideScreen ? 5 : 0}>
                     we&rsquo;re in-house. and all in.
                 </motion.div>
-                <div className={styles.image_container}>
+                <motion.div 
+                    className={styles.image_container}
+                    variants={allVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={isWideScreen ? 6 : 1}
+                    >
                     <img className={styles.image} 
                         src="https://d2mf4l4ba7pnlp.cloudfront.net/images/arrowdown.svg"
                         onClick={onImageClick}></img>
-                </div>
+                </motion.div>
             </div>
         </div>
     );
