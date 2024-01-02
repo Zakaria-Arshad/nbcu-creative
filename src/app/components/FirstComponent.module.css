@@ -70,7 +70,7 @@
 
 @media (max-width: 1050px) {
     .message_container {
-        height: 1000px;
+        height: auto;
     }
     
 }
