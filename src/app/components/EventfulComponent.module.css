@@ -93,6 +93,12 @@
 }
 
 @media(max-width: 600px) {
+    .container {
+        min-height: 10vh;
+    }
+    .image_container {
+        min-height: 10vh;
+    }
     .button_container {
         margin-top: 0px;
     }

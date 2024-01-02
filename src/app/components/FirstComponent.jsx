@@ -27,7 +27,7 @@ export default function FirstComponent( {onImageClick} ) {
 
     useEffect(() => {
         // Function to update the state based on window width
-        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 800);
+        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 850);
 
         // Set the initial state based on the current window width
         checkScreenSize();
