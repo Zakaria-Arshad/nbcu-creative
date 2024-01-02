@@ -27,7 +27,7 @@ export default function FirstComponent( {onImageClick} ) {
 
     useEffect(() => {
         // Function to update the state based on window width
-        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 850);
+        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 950);
 
         // Set the initial state based on the current window width
         checkScreenSize();
@@ -68,7 +68,7 @@ export default function FirstComponent( {onImageClick} ) {
                     initial="hidden"
                     animate="visible"
                     custom={isWideScreen ? 5 : 0}>
-                    we&rsquo;re in-house. and all in.
+                    we&rsquo;re <span className={styles.break}>in-house</span> <span className={styles.break}>and all in.</span>
                 </motion.div>
                 <motion.div 
                     className={styles.image_container}
