@@ -70,14 +70,14 @@
     float: right;
 }
 
-@media(max-width: 1000px) {
+@media(max-width: 1050px) {
     .view_button {
         height: 100px;
         width: 100px;
     }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 850px) {
     .button_container {
         margin-top: 40px;
     }
