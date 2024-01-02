@@ -58,24 +58,58 @@
     height: 100%;
 }
 
+@media (max-width: 1200px) {
+    .container {
+        height: 1000px; /* Adjust as per design requirement */
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: contain;
+    }
+}
+
 @media (max-width: 800px) {
     .container {
-        height: 600px; /* Adjust as per design requirement */
-        background-size: cover;
+        height: 700px;
+        background-size: contain;
     }
 
     .message_container {
         width: 60vw; 
         height: auto; 
-        top: 40%;
+        top: 65%;
         left: 50%;
         transform: translate(-50%, -100%);
     }
 
     .motto {
-        font-size: 8vw;
+        font-size: 10vw;
         letter-spacing: -2px;
         margin-top: 0px;
         word-wrap: break-word;
+        line-height: .8;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        height: 350px; 
+    }
+
+    .message_container {
+        top: 37%;
+    }
+
+    .motto {
+        font-size: 12vw;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        height: 285px; 
+    }
+
+    .message_container {
+        top: 30%;
     }
 }
