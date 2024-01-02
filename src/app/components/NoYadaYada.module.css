@@ -22,3 +22,15 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+@media (max-width: 800px) {
+    .container {
+        min-height: 700px;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        min-height: 500px;
+    }
+}
