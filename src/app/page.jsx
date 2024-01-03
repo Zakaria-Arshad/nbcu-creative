@@ -1,5 +1,3 @@
-'use client'
-
 import styles from './page.module.css'
 import Header from './components/Header'
 import FirstComponent from './components/FirstComponent'
@@ -14,13 +12,6 @@ import NoYadaYada from './components/NoYadaYada'
 import Footer from './components/Footer'
 
 import { React } from 'react'
-
-// async function getData() { // get all images
-//   const res = await fetch(`${process.env.BASE_API_URL}/content?_format=json&alias=listing_page`)
-//   const data = await res.json()
-//   console.log(data);
-//   return data;
-// }
 
 export default async function Home() {
   
