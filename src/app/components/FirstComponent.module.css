@@ -1,3 +1,15 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .container {
     background-image: url(https://d2mf4l4ba7pnlp.cloudfront.net/images/greyslantbckgrnd.svg);
     background-repeat: no-repeat;
@@ -41,6 +53,24 @@
     color: #ff551a; 
     font-weight: bold;
 }
+
+.message, .motto, .image_container {
+    /* Apply the animation */
+    animation-name: fadeInUp;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.message:nth-child(1) { animation-delay: 0.3s; }
+.message:nth-child(2) { animation-delay: 0.6s; }
+.message:nth-child(3) { animation-delay: 0.9s; }
+.message:nth-child(4) { animation-delay: 1.2s; }
+.message:nth-child(5) { animation-delay: 1.5s; }
+.motto { animation-delay: 1.8s; }
+.image_container { animation-delay: 2.1s; }
+
 
 .image_container {
     display: flex;
@@ -94,13 +124,18 @@
         margin-left: 37%;        
     }
 
-    .motto {
-        font-size: 10vw;
-    }
-
     .motto .break {
         display: block; /* Cause a line break on narrow screens */
     }
+
+    .motto {
+        font-size: 10vw;
+        animation-delay: .3s;
+    }
+
+    .image_container { animation-delay: .6s; }
+
+    
 }
 
 @media(max-width: 450px) {
