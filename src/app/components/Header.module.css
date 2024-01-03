@@ -13,8 +13,7 @@
     height: 100px;
     width: 100%;
     left: 0;
-    display: flex;
-    justify-content: space-between;
+
     z-index: 10;
 
 }
@@ -22,10 +21,13 @@
 .nbcu_logo {
     height: 15vw; /* responsive to viewport height */
     width: auto;
-    margin-left: 4.5vw; /* responsive to viewport width */   
+    margin-left: 4.5vw; /* responsive to viewport width */
 }
 
 .navbar_icon {
+    position: absolute;
+    right: 0px;
+    top: 20px;
     width: 6.5vw; /* circle diameter */
     height: 6.5vw; /* circle diameter */
     border: 5px solid black; /* border */
@@ -45,6 +47,81 @@
     border-radius: 5px;
     transition: width 0.3s ease; /* Smooth transition for width change */
 }
+
+.parallelogram_container {
+    top:0;
+    left:0;
+}
+
+.parallelogram_1, .parallelogram_2, .parallelogram_3, .parallelogram_4, .parallelogram_5 {
+    position: fixed;
+    display: block;
+    height: 100px;
+    width: 100%;
+    transform: matrix(0.99999, -0.15837, 0, 1, 0, 0); 
+    opacity: 1; 
+    transform-origin: 50% 100% 0px;
+    z-index: 8;
+    background-color: #FC5A16;
+}
+
+.parallelogram_1 {
+    top: 140px;
+    background-color: #64CCED; /* overrides orange */
+}
+
+.parallelogram_2 {
+    top: 245px;
+}
+
+.parallelogram_3 {
+    top: 350px;
+}  
+
+.parallelogram_4 {
+    top: 455px;
+}  
+
+.parallelogram_5 {
+    top: 560px;
+} 
+
+.menu_container {
+    position: relative;
+    z-index: 9; /* Make sure this is higher than the parallelogram's z-index */
+  }
+  
+  .menu_item_1, .menu_item_2, .menu_item_3, .menu_item_4, .menu_item_5 {
+    position: fixed;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the text.  */
+    color: #FFFFFF; /* Example text color */
+    font-size: 1.8vw; /* Example font size */
+    font-weight: bold;
+  }
+  
+  .menu_item_1 {
+    top: 180px; 
+  }
+  
+  .menu_item_2 {
+    top: 285px; 
+  }
+  
+  .menu_item_3 {
+    top: 390px; 
+  }
+  
+  .menu_item_4 {
+    top: 495px; 
+  }
+  
+  .menu_item_5 {
+    top: 600px;
+  }
+
+
 
 @media (max-width: 1200px) {
     .navbar_icon {

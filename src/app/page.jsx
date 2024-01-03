@@ -13,7 +13,15 @@ import Footer from './components/Footer'
 
 import { React } from 'react'
 
+// async function getData() { // get all images
+//   const res = await fetch(`${process.env.BASE_API_URL}`)
+//   const data = await res.json()
+//   console.log(data);
+//   return data;
+// }
+
 export default async function Home() {
+  // const data = await getData();
   
   return (
     <>
