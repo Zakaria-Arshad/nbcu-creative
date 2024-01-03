@@ -13,19 +13,22 @@ import BigFansComponent from './components/BigFansComponent'
 import NoYadaYada from './components/NoYadaYada'
 import Footer from './components/Footer'
 
-import { React, useRef } from 'react'
-export default function Home() {
-  const EventfulComponentRef = useRef(null)
+import { React } from 'react'
 
-  function scrollToComponent() {
-    EventfulComponentRef.current?.scrollIntoView({ behavior: 'smooth' }); // safe for null
-  }
+// async function getData() { // get all images
+//   const res = await fetch(`${process.env.BASE_API_URL}/content?_format=json&alias=listing_page`)
+//   const data = await res.json()
+//   console.log(data);
+//   return data;
+// }
 
+export default async function Home() {
+  
   return (
     <>
     <Header />
-    <FirstComponent onImageClick={scrollToComponent}/>
-    <EventfulComponent ref={EventfulComponentRef}/>
+    <FirstComponent />
+    <EventfulComponent />
     <LoveIdeasMakeThings />
     <ThinkersComponent />
     <WeHelpBusinessesGrow />

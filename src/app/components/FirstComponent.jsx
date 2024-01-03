@@ -1,19 +1,8 @@
-'use client'
-
-import React, { useState, useEffect } from 'react';
+import { React } from 'react';
 import { motion } from 'framer-motion';
 import styles from './FirstComponent.module.css';
-import Head from 'next/head';
 
-
-export default function FirstComponent( {onImageClick} ) {
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-      }, []); // scrolls to top on load/refresh
-
+export default function FirstComponent() {
     const allVariants = {
         hidden: { opacity: 0, y: 20 }, // start with opacity 0 (invisible) and 20px down
         visible: (custom) => ({
@@ -23,26 +12,26 @@ export default function FirstComponent( {onImageClick} ) {
         }),
     };
 
-    const [isWideScreen, setIsWideScreen] = useState(true); // Assuming true by default
+    // const [isWideScreen, setIsWideScreen] = useState(true); // Assuming true by default
 
-    useEffect(() => {
-        // Function to update the state based on window width
-        const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 950);
+    // useEffect(() => {
+    //     // Function to update the state based on window width
+    //     const checkScreenSize = () => setIsWideScreen(window.innerWidth >= 950);
 
-        // Set the initial state based on the current window width
-        checkScreenSize();
+    //     // Set the initial state based on the current window width
+    //     checkScreenSize();
 
-        // Add event listener for window resize
-        window.addEventListener('resize', checkScreenSize);
+    //     // Add event listener for window resize
+    //     window.addEventListener('resize', checkScreenSize);
 
-        // Clean up event listener
-        return () => window.removeEventListener('resize', checkScreenSize);
-    }, []);
+    //     // Clean up event listener
+    //     return () => window.removeEventListener('resize', checkScreenSize);
+    // }, []);
 
     return (
         <div className={styles.container}>
             <div className={styles.message_container}>
-                {isWideScreen && (
+                
                     <>
                     {["we're obsessed. inspired. fun. connected.",
                       'builders. fans. solvers. social. friendly.',
@@ -61,13 +50,13 @@ export default function FirstComponent( {onImageClick} ) {
                         </motion.div>
                     ))}
                 </>
-                )}
+                
                 <motion.div 
                     className={styles.motto}
                     variants={allVariants}
                     initial="hidden"
                     animate="visible"
-                    custom={isWideScreen ? 5 : 0}>
+                    custom={5}>
                     we&rsquo;re <span className={styles.break}>in-house</span> <span className={styles.break}>and all in.</span>
                 </motion.div>
                 <motion.div 
@@ -75,11 +64,13 @@ export default function FirstComponent( {onImageClick} ) {
                     variants={allVariants}
                     initial="hidden"
                     animate="visible"
-                    custom={isWideScreen ? 6 : 1}
+                    custom={6}
                     >
-                    <img className={styles.image} 
-                        src="https://d2mf4l4ba7pnlp.cloudfront.net/images/arrowdown.svg"
-                        onClick={onImageClick}></img>
+                    <a href="#targetComponent" className={styles.link}>
+                        <img className={styles.image} 
+                            src="https://d2mf4l4ba7pnlp.cloudfront.net/images/arrowdown.svg">
+                        </img>
+                    </a>
                 </motion.div>
             </div>
         </div>

@@ -62,6 +62,10 @@
     display: inline; /* Default to inline, no break */
 }
 
+.link {
+    scroll-behavior: smooth;
+}
+
 @media(max-width: 1050px){
     .container {
         height: 950px;
@@ -80,6 +84,10 @@
     .message_container {
         left: 55%; /* Move message container to the right */
         width: 75vw;
+    }
+
+    .message {
+        display: none;
     }
 
     .image_container {

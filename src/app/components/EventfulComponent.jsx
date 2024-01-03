@@ -1,12 +1,8 @@
-
-'use client' // necessary to useState. client component instead of server component
-
-import { React, useState, forwardRef } from 'react';
+import { React } from 'react';
 import styles from './EventfulComponent.module.css'
 import { motion } from 'framer-motion';
 
-const EventfulComponent = forwardRef((props, ref) => {
-  const [enable, setEnable] = useState(false) 
+export default function EventfulComponent() {
 
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
@@ -14,7 +10,7 @@ const EventfulComponent = forwardRef((props, ref) => {
   }
 
   return (
-    <div ref={ref} className={styles.container}>
+    <div id='targetComponent' className={styles.container}>
       <div className={styles.image_container}>
         <motion.img
         initial={{ y: 50 }}
@@ -54,15 +50,12 @@ const EventfulComponent = forwardRef((props, ref) => {
           variants = {allVariants}
           initial = 'offScreen'
           whileInView='onScreen'>
-          {!enable ? <div className={styles.view_button}>
+          <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
-          </div> : null}
+          </div>
         </motion.div>
       </div>
     </div>
   )
-});
+};
 
-EventfulComponent.displayName = 'EventfulComponent'; // Add this line
-
-export default EventfulComponent;
