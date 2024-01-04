@@ -91,11 +91,11 @@ export default function Header() {
                             exit="hidden"
                             custom={index}
                         >
-                            {index === 1 && 'fresh baked'}
-                            {index === 2 && "we're eventful"}
-                            {index === 3 && "we're thinkers who do"}
-                            {index === 4 && "we're connected"}
-                            {index === 5 && "we're big fans"}
+                            {index === 1 && <Link href="/freshbaked">fresh baked</Link>}
+                            {index === 2 && <Link href="/eventful">we're eventful</Link>}
+                            {index === 3 && <Link href="/thinkers">we're thinkers who do</Link>}
+                            {index === 4 && <Link href="/connected">we're connected</Link>}
+                            {index === 5 && <Link href="/fans">we're big fans</Link>}
                         </motion.div>
                         ))}
                 </div>
