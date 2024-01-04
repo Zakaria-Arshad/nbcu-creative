@@ -120,7 +120,7 @@
     top: 600px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     .navbar_icon {
         width: 7vw; /* circle diameter */
         height: 7vw; /* circle diameter */
