@@ -1,12 +1,13 @@
 import { React } from 'react';
 import Header from '../components/Header'
+import ConnectedComponent from '../components/ConnectedComponent';
 import Footer from '../components/Footer'
 
 export default function Connected() {
     return (
         <>
         <Header />
-        <h1>Connected</h1>
+        <ConnectedComponent enable={false}/>
         <Footer />  
         </>
     )

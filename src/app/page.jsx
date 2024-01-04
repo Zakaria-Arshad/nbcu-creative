@@ -19,6 +19,10 @@ import { React } from 'react'
 //   console.log(data);
 //   return data;
 // }
+export const metadata = {
+  title: "NBCUCreative",
+  description: "",
+};
 
 export default async function Home() {
   // const data = await getData();

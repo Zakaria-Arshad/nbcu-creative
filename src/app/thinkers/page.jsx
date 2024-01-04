@@ -1,12 +1,13 @@
 import { React } from 'react';
 import Header from '../components/Header'
+import ThinkersComponent from '../components/ThinkersComponent';
 import Footer from '../components/Footer'
 
 export default function Thinkers() {
     return (
         <>
         <Header />
-        <h1>Thinkers</h1>
+        <ThinkersComponent enable={false}/>
         <Footer />  
         </>
     )
