@@ -98,7 +98,6 @@
     transform: translateX(-50%); /* Centers the text.  */
     color: #FFFFFF; /* Example text color */
     font-size: 1.8vw; /* Example font size */
-    font-weight: bold;
   }
   
   .menu_item_1 {

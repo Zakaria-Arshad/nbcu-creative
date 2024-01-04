@@ -58,8 +58,8 @@ export default function Header() {
         },
         visible: (custom) => ({
           opacity: 1, // Fully visible
-          transition: { duration: custom * 0.3 } 
-        }),
+          transition: { duration: custom * 0.3 }, 
+        })
       };
       
 
@@ -89,6 +89,7 @@ export default function Header() {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
+                            whileHover={{ color: "black" }}
                             custom={index}
                         >
                             {index === 1 && <Link href="/freshbaked">fresh baked</Link>}
