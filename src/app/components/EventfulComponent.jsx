@@ -1,6 +1,7 @@
 'use client'
 
 import { React } from 'react';
+import Link from 'next/link';
 import styles from './EventfulComponent.module.css'
 import { motion } from 'framer-motion';
 
@@ -52,9 +53,11 @@ export default function EventfulComponent() {
           variants = {allVariants}
           initial = 'offScreen'
           whileInView='onScreen'>
+          <Link href='/eventful'>
           <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
           </div>
+          </Link>
         </motion.div>
       </div>
     </div>

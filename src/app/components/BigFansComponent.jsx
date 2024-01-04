@@ -2,6 +2,7 @@
 'use client' // necessary to useState. client component instead of server component
 
 import { React, useState } from 'react';
+import Link from 'next/link';
 import styles from './BigFansComponent.module.css'
 import { motion } from 'framer-motion';
 
@@ -58,9 +59,11 @@ export default function BigFansComponent() {
         whileInView="onScreen"
       >
         {!enable ? (
+          <Link href="/fans">
           <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
           </div>
+          </Link>
         ) : null}
       </motion.div>
     </div>

@@ -135,6 +135,12 @@
     }
 }
 
+@media (max-width: 1050px) {
+    .menu_item_1, .menu_item_2, .menu_item_3, .menu_item_4, .menu_item_5 {
+        font-size: 2.5vw; /* Example font size */
+    }
+}
+
 @media (max-width: 800px) {
     .nbcu_logo {
         height: 20vw; /* Larger size for smaller screens */
@@ -145,6 +151,50 @@
         width: 12vw;
         border: 4px solid black;
     }
+
+    .menu_item_1, .menu_item_2, .menu_item_3, .menu_item_4, .menu_item_5 {
+        font-size: 3vw; /* Example font size */
+    }
+
+    .parallelogram_1 {
+        top: 100px;
+    }
+    
+    .parallelogram_2 {
+        top: 205px;
+    }
+    
+    .parallelogram_3 {
+        top: 310px;
+    }  
+    
+    .parallelogram_4 {
+        top: 415px;
+    }  
+    
+    .parallelogram_5 {
+        top: 520px;
+    } 
+
+    .menu_item_1 {
+        top: 140px; 
+      }
+      
+      .menu_item_2 {
+        top: 245px; 
+      }
+      
+      .menu_item_3 {
+        top: 350px; 
+      }
+      
+      .menu_item_4 {
+        top: 455px; 
+      }
+      
+      .menu_item_5 {
+        top: 560px;
+      }
 }
 
 @media (max-width: 450px) {
@@ -161,6 +211,9 @@
     .menu_line {
         height: .5vw;
         margin: 3px;
+    }
+    .menu_item_1, .menu_item_2, .menu_item_3, .menu_item_4, .menu_item_5 {
+        font-size: 4vw; /* Example font size */
     }
 }
 
