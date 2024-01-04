@@ -1,7 +1,6 @@
-
 'use client' // necessary to useState. client component instead of server component
 
-import { React, useState } from 'react';
+import { React } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from '../css-styles/BigFansComponent.module.css';

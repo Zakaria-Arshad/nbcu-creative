@@ -1,7 +1,7 @@
 
 'use client' // necessary to useState. client component instead of server component
 
-import { React, useState } from 'react';
+import { React } from 'react';
 import Link from 'next/link';
 import styles from '../css-styles/ThinkersComponent.module.css';
 import { motion } from 'framer-motion';
