@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from './NoYadaYada.module.css';
+import styles from '../css-styles/NoYadaYada.module.css'
 
 export default function NoYadaYada() {
     // Text animation variants

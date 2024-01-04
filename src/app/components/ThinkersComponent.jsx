@@ -3,7 +3,7 @@
 
 import { React, useState } from 'react';
 import Link from 'next/link';
-import styles from './ThinkersComponent.module.css'
+import styles from '../css-styles/ThinkersComponent.module.css';
 import { motion } from 'framer-motion';
 
 export default function ThinkersComponent( { enable} ) {

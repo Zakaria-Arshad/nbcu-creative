@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from './Footer.module.css';
+import styles from '../css-styles/Footer.module.css'
 
 export default function Footer() {
     // Animation variants

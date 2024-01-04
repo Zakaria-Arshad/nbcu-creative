@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from './Header.module.css';
+import styles from '../css-styles/Header.module.css'
 
 // header should include thin orange bar, image on the left, and navbar icon on the right
 export default function Header() {

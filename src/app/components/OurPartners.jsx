@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from './OurPartners.module.css';
+import styles from '../css-styles/OurPartners.module.css'
 
 export default function OurPartners() {
     // Text animation variants

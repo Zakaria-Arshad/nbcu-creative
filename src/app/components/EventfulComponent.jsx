@@ -2,7 +2,7 @@
 
 import { React } from 'react';
 import Link from 'next/link';
-import styles from './EventfulComponent.module.css'
+import styles from '../css-styles/EventfulComponent.module.css';
 import { motion } from 'framer-motion';
 
 export default function EventfulComponent({ enable }) {

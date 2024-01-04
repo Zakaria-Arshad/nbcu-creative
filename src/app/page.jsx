@@ -19,7 +19,7 @@ import { React } from 'react'
 //   console.log(data);
 //   return data;
 // }
-export const metadata = {
+export const metadata = { // set screen tab title
   title: "NBCUCreative",
   description: "",
 };

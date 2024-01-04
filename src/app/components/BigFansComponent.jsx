@@ -3,8 +3,8 @@
 
 import { React, useState } from 'react';
 import Link from 'next/link';
-import styles from './BigFansComponent.module.css'
 import { motion } from 'framer-motion';
+import styles from '../css-styles/BigFansComponent.module.css';
 
 export default function BigFansComponent( { enable }) {
 

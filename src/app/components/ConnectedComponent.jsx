@@ -4,8 +4,8 @@
 
 import { React, useState } from 'react';
 import Link from 'next/link';
-import styles from './ConnectedComponent.module.css'
 import { motion } from 'framer-motion';
+import styles from '../css-styles/ConnectedComponent.module.css';
 
 // src="https://d2mf4l4ba7pnlp.cloudfront.net/images/img4.png" for background
 // src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe2.png" for blue stripe

@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from './WeHelpBusinessesGrow.module.css'
-
+import styles from '../css-styles/WeHelpBusinessesGrow.module.css'
 export default function WeHelpBusinessesGrow() {
     const textVariants = {
         offScreen: { y: 50, opacity: 0 },

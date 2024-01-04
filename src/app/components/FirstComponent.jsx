@@ -1,5 +1,5 @@
 import { React } from 'react';
-import styles from './FirstComponent.module.css';
+import styles from '../css-styles/FirstComponent.module.css'
 
 export default function FirstComponent() {
 
