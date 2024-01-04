@@ -27,13 +27,13 @@ export default async function Home() {
     <>
     <Header />
     <FirstComponent />
-    <EventfulComponent />
+    <EventfulComponent enable={true}/>
     <LoveIdeasMakeThings />
-    <ThinkersComponent />
+    <ThinkersComponent enable={true}/>
     <WeHelpBusinessesGrow />
-    <ConnectedComponent />
+    <ConnectedComponent enable={true}/>
     <OurPartners />
-    <BigFansComponent />
+    <BigFansComponent enable={true}/>
     <NoYadaYada />  
     <Footer />
     </>

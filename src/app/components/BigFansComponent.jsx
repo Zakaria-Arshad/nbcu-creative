@@ -6,8 +6,7 @@ import Link from 'next/link';
 import styles from './BigFansComponent.module.css'
 import { motion } from 'framer-motion';
 
-export default function BigFansComponent() {
-  const [enable, setEnable] = useState(false) 
+export default function BigFansComponent( { enable }) {
 
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
@@ -23,7 +22,9 @@ export default function BigFansComponent() {
         whileInView={{ y: 0, transition: { duration: 0.5 } }}
         src="https://d2mf4l4ba7pnlp.cloudfront.net/images/blacklistheader.png">
     </motion.img>
-      <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe.png"></img>
+    {enable === true ? (
+        <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe.png"></img>
+      ) : null}
     </div>
     <div className={styles.text_container}>
       <motion.div 
@@ -58,7 +59,7 @@ export default function BigFansComponent() {
         initial="offScreen"
         whileInView="onScreen"
       >
-        {!enable ? (
+        {enable === true ? (
           <Link href="/fans">
           <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>

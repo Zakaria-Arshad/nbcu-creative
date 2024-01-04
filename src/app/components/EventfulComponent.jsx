@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from './EventfulComponent.module.css'
 import { motion } from 'framer-motion';
 
-export default function EventfulComponent() {
+export default function EventfulComponent({ enable }) {
 
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
@@ -20,7 +20,9 @@ export default function EventfulComponent() {
         whileInView={{ y: 0, transition: { duration: .5} }} 
           className={styles.image} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/img2.png">
         </motion.img>
+        {enable === true ? (
         <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe2.png"></img>
+      ) : null}
       </div>
       <div className={styles.text_container}>
         <motion.div 
@@ -53,11 +55,13 @@ export default function EventfulComponent() {
           variants = {allVariants}
           initial = 'offScreen'
           whileInView='onScreen'>
-          <Link href='/eventful'>
+          {enable === true ? (
+          <Link href="/eventful">
           <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
           </div>
           </Link>
+        ) : null}
         </motion.div>
       </div>
     </div>

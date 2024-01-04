@@ -6,8 +6,7 @@ import Link from 'next/link';
 import styles from './ThinkersComponent.module.css'
 import { motion } from 'framer-motion';
 
-export default function ThinkersComponent() {
-  const [enable, setEnable] = useState(false) 
+export default function ThinkersComponent( { enable} ) {
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
     onScreen: { y: 0, opacity: 1, transition: { duration: .5 } }
@@ -22,7 +21,9 @@ export default function ThinkersComponent() {
         whileInView={{ y: 0, transition: { duration: 0.5 } }}
         src="https://d2mf4l4ba7pnlp.cloudfront.net/images/img3.png">
       </motion.img>
-      <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe.png"></img>
+      {enable === true ? (
+        <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe.png"></img>
+      ) : null}
     </div>
     <div className={styles.text_container}>
       <motion.div 
@@ -60,7 +61,7 @@ export default function ThinkersComponent() {
         initial="offScreen"
         whileInView="onScreen"
       >
-        {!enable ? (
+        {enable === true ? (
           <Link href="/thinkers"> 
           <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>

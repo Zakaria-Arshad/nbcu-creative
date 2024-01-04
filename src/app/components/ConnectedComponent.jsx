@@ -13,8 +13,7 @@ import { motion } from 'framer-motion';
 // then put the components inside of it
 
 // to add in the future: conditional rendering for certain components and a prop for rendering animation
-export default function ConnectedComponent() {
-  const [enable, setEnable] = useState(false) 
+export default function ConnectedComponent( {enable} ) {
 
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
@@ -30,8 +29,10 @@ export default function ConnectedComponent() {
         whileInView={{ y: 0, transition: { duration: 0.5 } }}
         src="https://d2mf4l4ba7pnlp.cloudfront.net/images/img4.png">
       </motion.img>
-      <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe2.png"></img>
-    </div>
+      {enable === true ? (
+        <img className={styles.blue_stripe} src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe2.png"></img>
+      ) : null}
+        </div>
     <div className={styles.text_container}>
       <motion.div 
         className={styles.title_container}
@@ -65,7 +66,7 @@ export default function ConnectedComponent() {
         initial="offScreen"
         whileInView="onScreen"
       >
-        {!enable ? (
+        {enable === true ? (
           <Link href="/connected">
           <div className={styles.view_button}>
             <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
