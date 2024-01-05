@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the boxes horizontally */
+    align-items: flex-start; /* Align the boxes to the top */
+    max-width: 85%; 
+    margin: 0 auto; /* Centers the container */
+}
+
+.box {
+    position: relative; 
+    width: 40%; 
+    overflow: hidden; 
+    margin: 10px; 
+    box-sizing: border-box; /* Include padding and borders in the box's size */
+  }
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Base overlay styling */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* Initially transparent background, text is invisible */
+  .overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FC5A16;
+    opacity: 0; /* Background is initially transparent */
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Text content is initially invisible */
+  .overlay_content {
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Hover effect on the box */
+  .box:hover .overlay::before {
+    opacity: 0.7; /* Background becomes semi-transparent */
+  }
+  
+  .box:hover .overlay_content {
+    opacity: 1; /* Text becomes fully opaque */
+  }
+
+
+  @media (max-width: 990px) {
+    /* One image per row */
+    .container {
+      max-width: 80%; 
+    }
+  
+    .box {
+      width: 100%; 
+      margin: 10px 0;
+    }
+  
+    /* Overlay now appears below the image */
+    .overlay {
+      position: static; /* Default position */
+      background: none;
+      color: #FC5A16; 
+      font-weight: bold;
+    }
+  
+    /* Background and text content now always visible, no hover */
+    .overlay::before,
+    .overlay_content {
+      opacity: 1; /* Make text always visible */
+      transition: none; /* Disable the transition animation */
+      background: none;
+      font-size: 5vw;
+    }
+  
+    /* Remove hover effect */
+    .box:hover .overlay::before,
+    .box:hover .overlay_content {
+      opacity: 1; /* Keep text visible */
+    }
+  }
+  
