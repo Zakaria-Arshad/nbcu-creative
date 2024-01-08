@@ -89,7 +89,7 @@ export default function Header() {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            whileHover={{ color: "black" }}
+                            whileHover={{ color: "#000000" }}
                             custom={index}
                         >
                             {index === 1 && <Link href="/freshbaked">fresh baked</Link>}
