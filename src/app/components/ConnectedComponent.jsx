@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../css-styles/ConnectedComponent.module.css";
 
-// Returns "We're Connected" component. Has enable prop to disable view button and blue stripe."
+// Returns "We're Connected" component. Has enable prop to disable view button and blue stripe.
 export default function ConnectedComponent({ enable }) {
   // Text animation variants
   const allVariants = {

@@ -4,6 +4,12 @@ import FreshBakedComponent from "../components/FreshBakedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
+export const metadata = {
+  // set screen tab title
+  title: "NBCUCreative FreshBaked",
+  description: "",
+};
+
 export default function FreshBaked() {
   // would get these from API
   const images = [

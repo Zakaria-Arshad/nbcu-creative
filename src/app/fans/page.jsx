@@ -4,6 +4,12 @@ import BigFansComponent from "../components/BigFansComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
+export const metadata = {
+  // set screen tab title
+  title: "NBCUCreative Fans",
+  description: "",
+};
+
 export default function Fans() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/blacklist-Tile.jpg",

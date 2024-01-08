@@ -4,6 +4,12 @@ import EventfulComponent from "../components/EventfulComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
+export const metadata = {
+  // set screen tab title
+  title: "NBCUCreative Eventful",
+  description: "",
+};
+
 export default function Eventful() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/ThankYou-Tile.jpg",

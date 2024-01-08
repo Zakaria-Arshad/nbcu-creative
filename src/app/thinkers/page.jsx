@@ -4,6 +4,12 @@ import ThinkersComponent from "../components/ThinkersComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
+export const metadata = {
+  // set screen tab title
+  title: "NBCUCreative Thinkers",
+  description: "",
+};
+
 export default function Thinkers() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/Symphony-Tile.jpg",

@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "../css-styles/EventfulComponent.module.css";
 import { motion } from "framer-motion";
 
-// Returns "We're Eventful" component. Has enable prop to disable view button and blue stripe."
+// Returns "We're Eventful" component. Has enable prop to disable view button and blue stripe.
 export default function EventfulComponent({ enable }) {
   // Text animation variants
   const allVariants = {

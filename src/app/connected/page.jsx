@@ -4,6 +4,12 @@ import ConnectedComponent from "../components/ConnectedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
+export const metadata = {
+  // set screen tab title
+  title: "NBCUCreative Connected",
+  description: "",
+};
+
 export default function Connected() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/StayHealthy-Tile.jpg",
@@ -27,6 +33,7 @@ export default function Connected() {
     "Take Our Daughters & Sons To Work Day",
     "Bring Your Parents To Work Day",
   ];
+  
   return (
     <>
       <Header />
