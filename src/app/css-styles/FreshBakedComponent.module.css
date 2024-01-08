@@ -1,80 +1,79 @@
 .container {
-    min-height: 50vh; /* can change */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  min-height: 50vh; /* can change */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .image_container {
-    min-height: 50vh;
-    width: 100%;
-    position: relative;
+  min-height: 50vh;
+  width: 100%;
+  position: relative;
 }
 
 .text_container {
-    position: absolute;
-    width: 55vw;
-    height: 40vw;
-    left: 33%;
-    top: 22%;
-    z-index: 5;
+  position: absolute;
+  width: 55vw;
+  height: 40vw;
+  left: 33%;
+  top: 22%;
+  z-index: 5;
 }
 
 .title_container {
-    text-align: right;
-    font-size: 7vw;
-    font-weight: bold;
+  text-align: right;
+  font-size: 7vw;
+  font-weight: bold;
 }
 
 .subtitle_container {
-    text-align: right;
-    font-size: 3vw;
-    font-weight: 500;
+  text-align: right;
+  font-size: 3vw;
+  font-weight: 500;
 }
 
 .subtitle_1 {
-    margin-bottom: -2%;
+  margin-bottom: -2%;
 }
 
 .image {
-    width: 100%;
+  width: 100%;
 }
 
-@media(max-width: 850px) {
-    .text_container {
-        left: 28%;
-    }
+@media (max-width: 850px) {
+  .text_container {
+    left: 28%;
+  }
 }
 
-@media(max-width: 600px) {
-    .container {
-        min-height: 10vh;
-    }
-    .image_container {
-        min-height: 10vh;
-    }
-    .button_container {
-        margin-top: 0px;
-    }
-    .view_button {
-        height: 60px;
-        width: 60px;
-    }
+@media (max-width: 600px) {
+  .container {
+    min-height: 10vh;
+  }
+  .image_container {
+    min-height: 10vh;
+  }
+  .button_container {
+    margin-top: 0px;
+  }
+  .view_button {
+    height: 60px;
+    width: 60px;
+  }
 
-    .text_container {
-        top: 22%;
-        letter-spacing: -2px;
-        left: 25%;
-        
-    }
+  .text_container {
+    top: 22%;
+    letter-spacing: -2px;
+    left: 25%;
+  }
 
-    .title_container {
-        font-size: 10vw;
-    }
+  .title_container {
+    font-size: 10vw;
+  }
 
-    .subtitle_container {
-        font-size: 5vw;
-    }
+  .subtitle_container {
+    font-size: 5vw;
+  }
 }
