@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../css-styles/OurPartners.module.css";
 
+// "Our Partners" component, used on Home Page.
 export default function OurPartners() {
   // Text animation variants
   const textVariants = {

@@ -5,14 +5,17 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "../css-styles/Header.module.css";
 
-// header should include thin orange bar, image on the left, and navbar icon on the right
+// Header component visible on every page, consisting of the NBCU logo and navbar icon
 export default function Header() {
   const [menuVisible, setMenuVisible] = useState(false);
 
+  // Toggles state variable for menu visibililty
+  // Used to show/hide full menu
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
 
+  // Variants for the orange bar
   const barVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -25,6 +28,7 @@ export default function Header() {
     },
   };
 
+  // Variants for the navbar icon
   const iconVariants = {
     hidden: { opacity: 0 },
     visible: (custom) => ({
@@ -36,7 +40,8 @@ export default function Header() {
         "brightness(0) saturate(100%) invert(37%) sepia(100%) saturate(4250%) hue-rotate(14deg) brightness(102%) contrast(101%)",
     },
   };
-
+  
+  // Variants for the parallelograms in the full menu
   const parallelogramVariants = {
     hidden: {
       width: 0,
@@ -56,6 +61,7 @@ export default function Header() {
     }),
   };
 
+  // Variants for the text in the full menu
   const menuItemVariants = {
     hidden: {
       opacity: 0,

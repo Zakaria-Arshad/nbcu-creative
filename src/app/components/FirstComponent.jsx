@@ -1,6 +1,7 @@
 import { React } from "react";
 import styles from "../css-styles/FirstComponent.module.css";
 
+// First component on the home page
 export default function FirstComponent() {
   return (
     <div className={styles.container}>

@@ -3,7 +3,10 @@ import React from "react";
 import styles from "../css-styles/FreshBakedComponent.module.css";
 import { motion } from "framer-motion";
 
+// "Fresh Baked" component, used in Fresh Baked subpage.
 export default function FreshBakedComponent() {
+  
+  // Variants for text animation
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
     onScreen: { y: 0, opacity: 1, transition: { duration: 0.5 } },

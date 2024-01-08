@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../css-styles/Footer.module.css";
 
+// Footer component displayed on all pages
 export default function Footer() {
   // Animation variants
   const variants = {

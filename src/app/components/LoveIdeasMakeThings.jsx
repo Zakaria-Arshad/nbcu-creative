@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../css-styles/LoveIdeasMakeThings.module.css";
 
+// "Love Ideas Make Things" component, used on Home Page.
 export default function LoveIdeasMakeThings() {
   // Variants for text animation
   const textVariants = {

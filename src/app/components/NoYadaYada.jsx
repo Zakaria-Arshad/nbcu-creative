@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../css-styles/NoYadaYada.module.css";
 
+// "No Yada-Yada" component, used on Home Page.
 export default function NoYadaYada() {
   // Text animation variants
   const textVariants = {

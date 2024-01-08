@@ -5,7 +5,9 @@ import Link from "next/link";
 import styles from "../css-styles/ThinkersComponent.module.css";
 import { motion } from "framer-motion";
 
+// Returns "We're Thinkers" component. Has enable prop to disable view button and blue stripe."
 export default function ThinkersComponent({ enable }) {
+  // Text animation variants
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
     onScreen: { y: 0, opacity: 1, transition: { duration: 0.5 } },
