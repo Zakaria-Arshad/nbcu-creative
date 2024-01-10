@@ -71,6 +71,12 @@
 }
 
 @media (max-width: 1050px) {
+  .container {
+    min-height: 40vh;
+  }
+  .image_container {
+    min-height: 40vh;
+  }
   .view_button {
     height: 100px;
     width: 100px;
