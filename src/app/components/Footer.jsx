@@ -70,9 +70,13 @@ export default function Footer() {
           variants={variants}
         >
           <p className={styles.copyright}>
-            ©2022 NBCUniversal Creative Group | Terms of use | Privacy Policy |
-            Do not sell my personal information | CA Notice
+            ©2022 NBCUniversal Creative Group | 
+            <a href="https://www.nbcuniversal.com/terms" target="_blank"> Terms of use </a> | 
+            <a href="https://www.nbcuniversal.com/privacy" target="_blank"> Privacy Policy </a> |
+            <a href="https://www.nbcuniversal.com/privacy/notrtoo" target="_blank"> Do not sell my personal information </a> | 
+            <a href="https://www.nbcuniversal.com/privacy/california-consumer-privacy-act" target="_blank"> CA Notice </a>
           </p>
+
         </motion.div>
       </div>
     </>

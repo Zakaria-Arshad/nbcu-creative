@@ -13,12 +13,12 @@ import Footer from "./components/Footer";
 
 import { React } from "react";
 
-// async function getData() { // get all images
-//   const res = await fetch(`${process.env.BASE_API_URL}content?_format=json&alias=listing_page`)
-//   const data = await res.json()
-//   console.log(data);
-//   return data;
-// }
+async function getData() { // get all images
+  const res = await fetch(`https://api.thecatapi.com/v1/images/search`)
+  const data = await res.json()
+  console.log(data);
+  return data;
+}
 
 export const metadata = {
   // set screen tab title
@@ -28,8 +28,8 @@ export const metadata = {
 
 // Home page of website
 export default async function Home() {
-  // const data = await getData();
-  // console.log(data)
+  const data = await getData();
+  console.log(data)
 
   return (
     <>
