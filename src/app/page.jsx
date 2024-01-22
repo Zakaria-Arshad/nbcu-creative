@@ -15,7 +15,7 @@ import { React } from "react";
 import { convertHeaderToTextArray } from './utils/api';
 
 async function getData() { // get all images
-  const res = await fetch(process.env.BASE_API_URL)
+  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
   const firstComponentData = convertHeaderToTextArray(data[1].data.header)
   return firstComponentData;
