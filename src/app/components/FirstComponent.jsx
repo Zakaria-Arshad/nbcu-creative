@@ -2,18 +2,12 @@ import { React } from "react";
 import styles from "../css-styles/FirstComponent.module.css";
 
 // First component on the home page
-export default function FirstComponent() {
+export default function FirstComponent( {apiData} ) {
   return (
     <div className={styles.container}>
       <div className={styles.message_container}>
         <>
-          {[
-            "we're obsessed. inspired. fun. connected.",
-            "builders. fans. solvers. social. friendly.",
-            "digital. humble. disruptive. tuned in.",
-            "ambitious. curious. not famous.",
-            "ambidextrous. strategic. partners.",
-          ].map((text, index) => (
+          {apiData.slice(0, 5).map((text, index) => (
             <div className={styles.message} key={index}>
               {text}
             </div>
@@ -21,8 +15,9 @@ export default function FirstComponent() {
         </>
 
         <div className={styles.motto}>
-          we&rsquo;re <span className={styles.break}>in-house.</span>{" "}
-          <span className={styles.break}>and all in.</span>
+          {/* we&rsquo;re <span className={styles.break}>in-house.</span>{" "}
+          <span className={styles.break}>and all in.</span> */}
+          {apiData[5]}
         </div>
         <div className={styles.image_container}>
           <a href="#targetComponent" className={styles.link}>

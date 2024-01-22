@@ -12,12 +12,13 @@ import NoYadaYada from "./components/NoYadaYada";
 import Footer from "./components/Footer";
 
 import { React } from "react";
+import { convertHeaderToTextArray } from './utils/api';
 
 async function getData() { // get all images
-  const res = await fetch(`https://api.thecatapi.com/v1/images/search`)
+  const res = await fetch(process.env.BASE_API_URL)
   const data = await res.json()
-  console.log(data);
-  return data;
+  const firstComponentData = convertHeaderToTextArray(data[1].data.header)
+  return firstComponentData;
 }
 
 export const metadata = {
@@ -28,13 +29,12 @@ export const metadata = {
 
 // Home page of website
 export default async function Home() {
-  const data = await getData();
-  console.log(data)
+  const FirstComponentData = await getData();
 
   return (
     <>
       <Header />
-      <FirstComponent />
+      <FirstComponent apiData={FirstComponentData}/>
       <EventfulComponent enable={true} />
       <LoveIdeasMakeThings />
       <ThinkersComponent enable={true} />
