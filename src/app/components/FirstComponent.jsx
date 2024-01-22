@@ -2,7 +2,7 @@ import { React } from "react";
 import styles from "../css-styles/FirstComponent.module.css";
 
 // First component on the home page
-export default function FirstComponent( {apiData} ) {
+export default function FirstComponent( {apiData=[]} ) {
   return (
     <div className={styles.container}>
       <div className={styles.message_container}>
