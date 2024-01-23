@@ -3,6 +3,14 @@ import Header from "../components/Header";
 import FreshBakedComponent from "../components/FreshBakedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+import { parseFooter } from '../utils/api';
+
+async function getData() { // get all images
+  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
+  const data = await res.json()
+  const footerData = parseFooter(data[1].data.footer);
+  return footerData;
+}
 
 export const metadata = {
   // set screen tab title
@@ -10,7 +18,8 @@ export const metadata = {
   description: "",
 };
 
-export default function FreshBaked() {
+
+export default async function FreshBaked() {
   // would get these from API
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/blacklist-Tile.jpg",
@@ -24,12 +33,15 @@ export default function FreshBaked() {
     "Symphony",
     "Jeff Shell Town Hall: A Thank You",
   ];
+
+  const footerData = await getData();
+  
   return (
     <>
       <Header />
       <FreshBakedComponent />
       <FeaturedComponent images={images} titles={titles} />
-      <Footer />
+      <Footer apiData={footerData}/>
     </>
   );
 }

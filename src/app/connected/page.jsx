@@ -3,6 +3,14 @@ import Header from "../components/Header";
 import ConnectedComponent from "../components/ConnectedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+import { parseFooter } from '../utils/api';
+
+async function getData() { // get all images
+  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
+  const data = await res.json()
+  const footerData = parseFooter(data[1].data.footer);
+  return footerData;
+}
 
 export const metadata = {
   // set screen tab title
@@ -10,7 +18,7 @@ export const metadata = {
   description: "",
 };
 
-export default function Connected() {
+export default async function Connected() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/StayHealthy-Tile.jpg",
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/MeetTheMoment-Tile.jpg",
@@ -33,13 +41,14 @@ export default function Connected() {
     "Take Our Daughters & Sons To Work Day",
     "Bring Your Parents To Work Day",
   ];
+  const footerData = await getData();
   
   return (
     <>
       <Header />
       <ConnectedComponent enable={false} />
       <FeaturedComponent images={images} titles={titles} />
-      <Footer />
+      <Footer apiData={footerData}/>
     </>
   );
 }

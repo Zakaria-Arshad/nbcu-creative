@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import styles from "../css-styles/Footer.module.css";
 
 // Footer component displayed on all pages
-export default function Footer() {
+export default function Footer({ apiData }) {
   // Animation variants
   const variants = {
     offScreen: { y: 40, opacity: 0 },
@@ -22,8 +22,8 @@ export default function Footer() {
           whileInView="onScreen"
           variants={variants}
         >
-          <div className={styles.title_1}>NBCU is in</div>
-          <div className={styles.title_2}>our DNA.</div>
+          <div className={styles.title_1}>{apiData[0]}</div>
+          <div className={styles.title_2}>{apiData[1]}</div>
         </motion.div>
         <motion.div
           className={styles.subtitle_container}
@@ -31,24 +31,11 @@ export default function Footer() {
           whileInView="onScreen"
           variants={variants}
         >
-          <p className={styles.subtitle}>
-            We know the players. We get the culture. We know which elevators to
-            take.
-          </p>
-          <p className={styles.subtitle}>
-            You&apos;ll collaborate with a global mashup of thinkers and doers —
-            from Chile to Sweden; from South Korea to South Africa. And, yes,
-            even Long Island.
-          </p>
-          <p className={styles.subtitle}>
-            We do digital, off-air collateral, brand identity, launches, branded
-            experiences, campaigns, key art, OOH, B2B, B2C, B2E. Full service
-            from start to finish.
-          </p>
-          <p className={styles.subtitle}>
-            You&apos;ve probably seen our work but didn&apos;t know it was us.
-            Now you&apos;re like &quot;Oh, you guys did that?&quot;
-          </p>
+          {apiData.slice(2, 6).map((item, index) => (
+            <p key={index} className={styles.subtitle}>
+              {item}
+            </p>
+          ))}
         </motion.div>
         <motion.div
           className={styles.details_container}
@@ -57,10 +44,10 @@ export default function Footer() {
           variants={variants}
         >
           <p className={styles.details}>
-            Hit up Nicole for all the deets:
+            {apiData[6]}
             <br />
-            516-672-3105 | nicole.siegel@nbcuni.com <br />
-            30 Rockefeller Plaza, New York, NY 10112
+            {apiData[7]} <br />
+            {apiData[8]}
           </p>
         </motion.div>
         <motion.div
@@ -70,15 +57,15 @@ export default function Footer() {
           variants={variants}
         >
           <p className={styles.copyright}>
-            ©2022 NBCUniversal Creative Group | 
-            <a href="https://www.nbcuniversal.com/terms" target="_blank"> Terms of use </a> | 
-            <a href="https://www.nbcuniversal.com/privacy" target="_blank"> Privacy Policy </a> |
-            <a href="https://www.nbcuniversal.com/privacy/notrtoo" target="_blank"> Do not sell my personal information </a> | 
-            <a href="https://www.nbcuniversal.com/privacy/california-consumer-privacy-act" target="_blank"> CA Notice </a>
+            {apiData[9]} 
+            <a href={apiData[10]} target="_blank"> {apiData[11]} </a> | 
+            <a href={apiData[12]} target="_blank"> {apiData[13]} </a> |
+            <a href={apiData[14]} target="_blank"> {apiData[15]} </a> | 
+            <a href={apiData[16]} target="_blank"> {apiData[17]} </a>
           </p>
-
         </motion.div>
       </div>
     </>
   );
 }
+

@@ -3,6 +3,14 @@ import Header from "../components/Header";
 import BigFansComponent from "../components/BigFansComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+import { parseFooter } from '../utils/api';
+
+async function getData() { // get all images
+  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
+  const data = await res.json()
+  const footerData = parseFooter(data[1].data.footer);
+  return footerData;
+}
 
 export const metadata = {
   // set screen tab title
@@ -10,7 +18,7 @@ export const metadata = {
   description: "",
 };
 
-export default function Fans() {
+export default async function Fans() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/blacklist-Tile.jpg",
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/buble-Tile.jpg",
@@ -31,12 +39,13 @@ export default function Fans() {
     "Sochi Olympics",
     "London Olympics",
   ];
+  const footerData = await getData();
   return (
     <>
       <Header />
       <BigFansComponent enable={false} />
       <FeaturedComponent images={images} titles={titles} />
-      <Footer />
+      <Footer apiData={footerData}/>
     </>
   );
 }

@@ -12,13 +12,14 @@ import NoYadaYada from "./components/NoYadaYada";
 import Footer from "./components/Footer";
 
 import { React } from "react";
-import { convertHeaderToTextArray } from './utils/api';
+import { convertHeaderToTextArray, parseFooter } from './utils/api';
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
+  const footerData = parseFooter(data[1].data.footer);
   const firstComponentData = convertHeaderToTextArray(data[1].data.header)
-  return firstComponentData;
+  return [firstComponentData, footerData];
 }
 
 export const metadata = {
@@ -29,7 +30,9 @@ export const metadata = {
 
 // Home page of website
 export default async function Home() {
-  const FirstComponentData = await getData();
+  const data = await getData();
+  const FirstComponentData = data[0];
+  const FooterData = data[1];
 
   return (
     <>
@@ -43,7 +46,7 @@ export default async function Home() {
       <OurPartners />
       <BigFansComponent enable={true} />
       <NoYadaYada />
-      <Footer />
+      <Footer apiData={FooterData}/>
     </>
   );
 }

@@ -3,6 +3,14 @@ import Header from "../components/Header";
 import ThinkersComponent from "../components/ThinkersComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+import { parseFooter } from '../utils/api';
+
+async function getData() { // get all images
+  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
+  const data = await res.json()
+  const footerData = parseFooter(data[1].data.footer);
+  return footerData;
+}
 
 export const metadata = {
   // set screen tab title
@@ -10,7 +18,7 @@ export const metadata = {
   description: "",
 };
 
-export default function Thinkers() {
+export default async function Thinkers() {
   const images = [
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/Symphony-Tile.jpg",
     "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/OneWorld-Tile.jpg",
@@ -49,12 +57,15 @@ export default function Thinkers() {
     "Day One",
     "NBCU Now",
   ];
+
+  const footerData = await getData();
+
   return (
     <>
       <Header />
       <ThinkersComponent enable={false} />
       <FeaturedComponent images={images} titles={titles} />
-      <Footer />
+      <Footer apiData={footerData}/>
     </>
   );
 }
