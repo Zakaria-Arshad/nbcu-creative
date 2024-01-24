@@ -12,14 +12,14 @@ import NoYadaYada from "./components/NoYadaYada";
 import Footer from "./components/Footer";
 
 import { React } from "react";
-import { convertHeaderToTextArray, parseFooter } from './utils/api';
+import { convertHeaderToTextArray, testingConvertHeaderToTextArray, parseFooter } from './utils/api';
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
   const footerData = parseFooter(data[1].data.footer);
-  const firstComponentData = convertHeaderToTextArray(data[1].data.header)
-  return [firstComponentData, footerData];
+  const FirstComponentData = convertHeaderToTextArray(data[1].data.header) 
+  return [FirstComponentData, footerData];
 }
 
 export const metadata = {
@@ -31,13 +31,13 @@ export const metadata = {
 // Home page of website
 export default async function Home() {
   const data = await getData();
-  const FirstComponentData = data[0];
   const FooterData = data[1];
+  const FirstComponentData = data[0];
 
   return (
     <>
       <Header />
-      <FirstComponent apiData={FirstComponentData}/>
+      <FirstComponent props={FirstComponentData}/>
       <EventfulComponent enable={true} />
       <LoveIdeasMakeThings />
       <ThinkersComponent enable={true} />
