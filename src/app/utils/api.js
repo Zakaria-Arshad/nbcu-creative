@@ -21,7 +21,7 @@ import React from 'react';
 //     return textArray;
 // }
 
-export const convertHeaderToTextArray = (htmlString) => {
+export const convertHeaderHTMLToReact = (htmlString) => {
   return parse(htmlString, {
     replace: (domNode) => {
       // Check if the node is an element (not text, comment, etc.)
