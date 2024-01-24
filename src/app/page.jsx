@@ -12,7 +12,7 @@ import NoYadaYada from "./components/NoYadaYada";
 import Footer from "./components/Footer";
 
 import { React } from "react";
-import { convertHeaderHTMLToReact, parseFooter } from './utils/api';
+import { convertHeaderHTMLToReact } from './utils/api';
 import { convertFooterHTMLToReact } from "./utils/footerapi";
 
 async function getData() { // get all images

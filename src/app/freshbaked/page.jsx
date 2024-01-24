@@ -3,13 +3,13 @@ import Header from "../components/Header";
 import FreshBakedComponent from "../components/FreshBakedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
-import { parseFooter } from '../utils/api';
+import { convertFooterHTMLToReact } from "../utils/footerapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
-  const footerData = parseFooter(data[1].data.footer);
-  return footerData;
+  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
+  return FooterData;
 }
 
 export const metadata = {
@@ -34,14 +34,14 @@ export default async function FreshBaked() {
     "Jeff Shell Town Hall: A Thank You",
   ];
 
-  const footerData = await getData();
+  const FooterData = await getData();
   
   return (
     <>
       <Header />
       <FreshBakedComponent />
       <FeaturedComponent images={images} titles={titles} />
-      <Footer apiData={footerData}/>
+      <Footer props={FooterData}/>
     </>
   );
 }

@@ -3,14 +3,15 @@ import Header from "../components/Header";
 import EventfulComponent from "../components/EventfulComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
-import { parseFooter } from '../utils/api';
+import { convertFooterHTMLToReact } from "../utils/footerapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
-  const footerData = parseFooter(data[1].data.footer);
-  return footerData;
+  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
+  return FooterData;
 }
+
 export const metadata = {
   // set screen tab title
   title: "NBCUCreative Eventful",
@@ -44,13 +45,13 @@ export default async function Eventful() {
     "Rio Olympics Press Conference",
     "Mezzanine Events",
   ];
-  const footerData = await getData();
+  const FooterData = await getData();
   return (
     <>
       <Header />
       <EventfulComponent enable={false} />
       <FeaturedComponent images={images} titles={titles} />
-      <Footer apiData={footerData}/>
+      <Footer props={FooterData}/>
     </>
   );
 }
