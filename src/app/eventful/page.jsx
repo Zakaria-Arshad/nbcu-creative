@@ -4,12 +4,18 @@ import EventfulComponent from "../components/EventfulComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
+import { parseData } from "../utils/eventfulapi"
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
+  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
+  const listingPageData = await listingPageRes.json()
+
+  const eventfulData = listingPageData.data[0]
+  const updatedEventfulData = parseData(eventfulData);
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return FooterData;
+  return [updatedEventfulData, FooterData];
 }
 
 export const metadata = {
@@ -45,11 +51,13 @@ export default async function Eventful() {
     "Rio Olympics Press Conference",
     "Mezzanine Events",
   ];
-  const FooterData = await getData();
+  const data = await getData();
+  const EventfulData = data[0];
+  const FooterData = data[1];
   return (
     <>
       <Header />
-      <EventfulComponent enable={false} />
+      <EventfulComponent props={EventfulData} enable={false} />
       <FeaturedComponent images={images} titles={titles} />
       <Footer props={FooterData}/>
     </>
