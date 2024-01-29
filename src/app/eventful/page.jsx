@@ -12,7 +12,6 @@ async function getData() { // get all images
   const data = await res.json()
   const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const listingPageData = await listingPageRes.json()
-
   const eventfulData = listingPageData.data[0]
   const updatedEventfulData = parseData(eventfulData);
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
@@ -52,14 +51,14 @@ export default async function Eventful() {
     "Rio Olympics Press Conference",
     "Mezzanine Events",
   ];
-  
+
   const data = await getData();
-  const EventfulData = data[0];
+  const EventfulComponentData = data[0];
   const FooterData = data[1];
   return (
     <>
       <Header />
-      <EventfulComponent props={EventfulData} enable={false} />
+      <EventfulComponent props={EventfulComponentData} enable={false} />
       <FeaturedComponent images={images} titles={titles} />
       <Footer props={FooterData}/>
     </>

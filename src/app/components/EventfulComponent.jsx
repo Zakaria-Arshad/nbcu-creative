@@ -46,19 +46,13 @@ export default function EventfulComponent({ props, enable }) {
         ) : null}
       </div>
       <div className={styles.text_container} ref={textRef}>
-        <div
-          className={styles.title_container}
-        >
+        <div className={styles.title_container}>
           {props.title}
         </div>
-        <div
-          className={styles.subtitle_container}
-        >
+        <div className={styles.subtitle_container}>
           {props.subHeading}
         </div>
-        <div
-          className={styles.button_container}
-        >
+        <div className={styles.button_container}>
           {enable === true ? (
             <Link href="/eventful">
               <div className={`${styles.view_button} ${styles.offScreen}`}>

@@ -15,19 +15,22 @@ import { React } from "react";
 import { convertHeaderHTMLToReact } from './utils/firstcomponentapi';
 import { convertFooterHTMLToReact } from "./utils/footerapi";
 import { parseData } from "./utils/eventfulapi"
+import { parseThinkersData } from "./utils/thinkersapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const data = await res.json()
   const listingPageData = await listingPageRes.json()
-
   const eventfulData = listingPageData.data[0]
   const updatedEventfulData = parseData(eventfulData);
+
+  const thinkersData = listingPageData.data[1]
+  const updatedThinkersData = parseThinkersData(thinkersData);
   const FirstComponentData = convertHeaderHTMLToReact(data[1].data.header) 
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
 
-  return [FirstComponentData, updatedEventfulData, FooterData];
+  return [FirstComponentData, updatedEventfulData, updatedThinkersData, FooterData];
 }
 
 export const metadata = {
@@ -41,7 +44,8 @@ export default async function Home() {
   const data = await getData();
   const FirstComponentData = data[0];
   const EventfulComponentData = data[1];
-  const FooterData = data[2];
+  const ThinkersComponentData = data[2];
+  const FooterData = data[3];
 
   return (
     <>
@@ -49,8 +53,8 @@ export default async function Home() {
       <FirstComponent props={FirstComponentData}/>
       <EventfulComponent props={EventfulComponentData} enable={true} />
       <LoveIdeasMakeThings props={EventfulComponentData.homeDescription}/>
-      <ThinkersComponent enable={true} />
-      <WeHelpBusinessesGrow />
+      <ThinkersComponent props={ThinkersComponentData} enable={true} />
+      <WeHelpBusinessesGrow props={ThinkersComponentData.homeDescription}/>
       <ConnectedComponent enable={true} />
       <OurPartners />
       <BigFansComponent enable={true} />

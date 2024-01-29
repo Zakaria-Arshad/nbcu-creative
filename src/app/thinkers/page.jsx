@@ -4,12 +4,18 @@ import ThinkersComponent from "../components/ThinkersComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
+import { parseThinkersData } from "../utils/thinkersapi";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
+  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const data = await res.json()
+  const listingPageData = await listingPageRes.json()
+  const thinkersData = listingPageData.data[1]
+  const updatedThinkersData = parseThinkersData(thinkersData);
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return FooterData;
+
+  return [updatedThinkersData, FooterData];
 }
 
 export const metadata = {
@@ -58,12 +64,14 @@ export default async function Thinkers() {
     "NBCU Now",
   ];
 
-  const FooterData = await getData();
+  const data = await getData()
+  const ThinkersComponentData = data[0];
+  const FooterData = data[1];
 
   return (
     <>
       <Header />
-      <ThinkersComponent enable={false} />
+      <ThinkersComponent props={ThinkersComponentData} enable={false} />
       <FeaturedComponent images={images} titles={titles} />
       <Footer props={FooterData}/>
     </>
