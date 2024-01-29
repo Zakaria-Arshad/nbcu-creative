@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import EventfulComponent from "../components/EventfulComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+
 import { convertFooterHTMLToReact } from "../utils/footerapi";
 import { parseData } from "../utils/eventfulapi"
 
@@ -51,6 +52,7 @@ export default async function Eventful() {
     "Rio Olympics Press Conference",
     "Mezzanine Events",
   ];
+  
   const data = await getData();
   const EventfulData = data[0];
   const FooterData = data[1];

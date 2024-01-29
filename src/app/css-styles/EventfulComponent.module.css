@@ -46,6 +46,17 @@
   margin-bottom: -5%; /* squish text together */
 }
 
+.title_1.offScreen, .subtitle_1.offScreen, .view_button.offScreen {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
+}
+
+.title_1.onScreen, .subtitle_1.onScreen, .view_button.onScreen {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .subtitle_container {
   text-align: right;
   font-size: 3.5vw;

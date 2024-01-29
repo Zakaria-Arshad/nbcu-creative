@@ -9,7 +9,7 @@ export const parseData = (eventfulJSON) => {
             const titleList = eventfulJSON[key].split('\r\n');
             const newList = [];
             for (let j = 0; j < titleList.length; j++) {
-                newList.push(<div className={styles.title_1}>{titleList[j]}</div>);
+                newList.push(<div className={`${styles.title_1} ${styles.offScreen}`}>{titleList[j]}</div>);
             }
             eventfulJSON[key] = newList;
         }
@@ -17,7 +17,7 @@ export const parseData = (eventfulJSON) => {
             const subHeadingList = eventfulJSON[key].split('\r\n');
             const newList = [];
             for (let j = 0; j < subHeadingList.length; j++) {
-                newList.push(<div className={styles.subtitle_1}>{subHeadingList[j]}</div>);
+                newList.push(<div className={`${styles.subtitle_1} ${styles.offScreen}`}>{subHeadingList[j]}</div>);
             }
             eventfulJSON[key] = newList;
         }
