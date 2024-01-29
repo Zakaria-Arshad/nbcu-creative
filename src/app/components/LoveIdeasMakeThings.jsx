@@ -1,48 +1,41 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import styles from "../css-styles/LoveIdeasMakeThings.module.css";
 
-// "Love Ideas Make Things" component, used on Home Page.
-export default function LoveIdeasMakeThings() {
-  // Variants for text animation
-  const textVariants = {
-    offScreen: { y: 50, opacity: 0 },
-    onScreen: { y: 0, opacity: 1, transition: { duration: 1 } },
-  };
+export default function LoveIdeasMakeThings({ props }) {
+  const containerRef = useRef(null);
 
-  // Variants for line animation
-  const lineVariants = {
-    offScreen: { width: "0%" },
-    onScreen: { width: "35%", transition: { duration: 1 } },
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.onScreen);
+          } else {
+            entry.target.classList.remove(styles.onScreen);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // Apply the observer to the children elements
+    const elements = containerRef.current.querySelectorAll(`.${styles.text}, .${styles.line}`);
+    elements.forEach((el) => observer.observe(el));
+
+    return () => elements.forEach((el) => observer.unobserve(el));
+  }, []);
 
   return (
-    <div className={styles.container}>
-      <motion.div
-        className={styles.text}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={textVariants}
-      >
-        we love ideas.
-      </motion.div>
-      <br />
-      <motion.hr
-        className={styles.line}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={lineVariants}
-      />
-      <motion.div
-        className={styles.text}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={textVariants}
-      >
-        we make things.
-      </motion.div>
+    <div className={styles.container} ref={containerRef}>
+      {props.map((prop, index) => (
+        <React.Fragment key={index}>
+          {prop}
+        </React.Fragment>
+      ))}
     </div>
   );
 }
+
+

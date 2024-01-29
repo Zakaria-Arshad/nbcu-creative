@@ -1,5 +1,4 @@
 import parse, { domToReact } from 'html-react-parser';
-// import styles from '../css-styles/Footer.module.css';
 import styles from '../css-styles/FirstComponent.module.css'
 import React from 'react';
 

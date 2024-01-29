@@ -6,7 +6,7 @@ import styles from "../css-styles/EventfulComponent.module.css";
 import { motion } from "framer-motion";
 
 // Returns "We're Eventful" component. Has enable prop to disable view button and blue stripe.
-export default function EventfulComponent({ enable }) {
+export default function EventfulComponent({ props, enable }) {
   // Text animation variants
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },
@@ -20,7 +20,7 @@ export default function EventfulComponent({ enable }) {
           initial={{ y: 50 }}
           whileInView={{ y: 0, transition: { duration: 0.5 } }}
           className={styles.image}
-          src="https://d2mf4l4ba7pnlp.cloudfront.net/images/img2.png"
+          src={props.image.url}
         ></motion.img>
         {enable === true ? (
           <img
@@ -36,8 +36,7 @@ export default function EventfulComponent({ enable }) {
           initial="offScreen"
           whileInView="onScreen"
         >
-          <div className={styles.title_1}>we&rsquo;re</div>
-          <div className={styles.title_2}>eventful</div>
+          {props.title}
         </motion.div>
         <motion.div
           className={styles.subtitle_container}
@@ -45,8 +44,7 @@ export default function EventfulComponent({ enable }) {
           initial="offScreen"
           whileInView="onScreen"
         >
-          <div className={styles.subtitle_1}>visual experiences for our</div>
-          <div className={styles.subtitle_2}>businesses and brands</div>
+          {props.subHeading}
         </motion.div>
         <motion.div
           className={styles.button_container}

@@ -1,6 +1,5 @@
 import parse, { domToReact } from 'html-react-parser';
 import styles from '../css-styles/Footer.module.css';
-import { motion } from "framer-motion";
 import React from 'react';
 
 export const convertFooterHTMLToReact = (htmlString) => {

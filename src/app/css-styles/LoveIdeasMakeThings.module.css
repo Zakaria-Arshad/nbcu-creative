@@ -25,6 +25,26 @@
   margin-bottom: 30px;
 }
 
+.text.offScreen {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
+}
+
+.text.onScreen {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.line.offScreen {
+  width: 0%;
+  transition: width 1s;
+}
+
+.line.onScreen {
+  width: 35%;
+}
+
 @media (max-width: 800px) {
   .container {
     min-height: 600px;
