@@ -3,11 +3,9 @@
 import { React, useRef, useEffect } from "react";
 import Link from "next/link";
 import styles from "../css-styles/ThinkersComponent.module.css";
-import { motion } from "framer-motion";
 
 // Returns "We're Thinkers" component. Has enable prop to disable view button and blue stripe.
 export default function ThinkersComponent({ props, enable }) {
-  // Text animation variants
   const imageRef = useRef(null);
   const textRef = useRef(null);
   useEffect(() => {

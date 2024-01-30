@@ -14,23 +14,30 @@ import Footer from "./components/Footer";
 import { React } from "react";
 import { convertHeaderHTMLToReact } from './utils/firstcomponentapi';
 import { convertFooterHTMLToReact } from "./utils/footerapi";
-import { parseData } from "./utils/eventfulapi"
+import { parseEventfulData } from "./utils/eventfulapi"
 import { parseThinkersData } from "./utils/thinkersapi";
+import { parseConnectedData } from "./utils/connectedapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
-  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const data = await res.json()
+
+  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const listingPageData = await listingPageRes.json()
+
+  const FirstComponentData = convertHeaderHTMLToReact(data[1].data.header) 
+
   const eventfulData = listingPageData.data[0]
-  const updatedEventfulData = parseData(eventfulData);
+  const updatedEventfulData = parseEventfulData(eventfulData);
 
   const thinkersData = listingPageData.data[1]
   const updatedThinkersData = parseThinkersData(thinkersData);
-  const FirstComponentData = convertHeaderHTMLToReact(data[1].data.header) 
-  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
 
-  return [FirstComponentData, updatedEventfulData, updatedThinkersData, FooterData];
+  const connectedData = listingPageData.data[2]
+  const updatedConnectedData = parseConnectedData(connectedData);
+
+  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
+  return [FirstComponentData, updatedEventfulData, updatedThinkersData, updatedConnectedData, FooterData];
 }
 
 export const metadata = {
@@ -45,7 +52,8 @@ export default async function Home() {
   const FirstComponentData = data[0];
   const EventfulComponentData = data[1];
   const ThinkersComponentData = data[2];
-  const FooterData = data[3];
+  const ConnectedComponentData = data[3];
+  const FooterData = data[4];
 
   return (
     <>
@@ -55,8 +63,8 @@ export default async function Home() {
       <LoveIdeasMakeThings props={EventfulComponentData.homeDescription}/>
       <ThinkersComponent props={ThinkersComponentData} enable={true} />
       <WeHelpBusinessesGrow props={ThinkersComponentData.homeDescription}/>
-      <ConnectedComponent enable={true} />
-      <OurPartners />
+      <ConnectedComponent props={ConnectedComponentData} enable={true} />
+      <OurPartners props={ConnectedComponentData.homeDescription} />
       <BigFansComponent enable={true} />
       <NoYadaYada />
       <Footer props={FooterData}/>

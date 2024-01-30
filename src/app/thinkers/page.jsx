@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 
 import { parseThinkersData } from "../utils/thinkersapi";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
+
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })

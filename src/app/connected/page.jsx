@@ -3,13 +3,22 @@ import Header from "../components/Header";
 import ConnectedComponent from "../components/ConnectedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+
+import { parseConnectedData } from "../utils/connectedapi";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
+
+  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
+  const listingPageData = await listingPageRes.json()
+
+  const connectedData = listingPageData.data[2]
+  const updatedConnectedData = parseConnectedData(connectedData);
+
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return FooterData;
+  return [updatedConnectedData, FooterData];
 }
 
 export const metadata = {
@@ -41,12 +50,14 @@ export default async function Connected() {
     "Take Our Daughters & Sons To Work Day",
     "Bring Your Parents To Work Day",
   ];
-  const FooterData = await getData();
+  const data = await getData();
+  const ConnectedComponentData = data[0];
+  const FooterData = data[1];
   
   return (
     <>
       <Header />
-      <ConnectedComponent enable={false} />
+      <ConnectedComponent props={ConnectedComponentData} enable={false} />
       <FeaturedComponent images={images} titles={titles} />
       <Footer props={FooterData}/>
     </>

@@ -5,7 +5,7 @@ import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 
 import { convertFooterHTMLToReact } from "../utils/footerapi";
-import { parseData } from "../utils/eventfulapi"
+import { parseEventfulData } from "../utils/eventfulapi"
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
@@ -13,7 +13,7 @@ async function getData() { // get all images
   const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const listingPageData = await listingPageRes.json()
   const eventfulData = listingPageData.data[0]
-  const updatedEventfulData = parseData(eventfulData);
+  const updatedEventfulData = parseEventfulData(eventfulData);
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
   return [updatedEventfulData, FooterData];
 }

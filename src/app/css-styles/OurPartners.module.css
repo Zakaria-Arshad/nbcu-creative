@@ -15,6 +15,7 @@
     1px -1px 0 #fc5a16, -1px 1px 0 #fc5a16, 1px 1px 0 #fc5a16;
   font-size: calc(1em + 3.5vw);
   text-align: center;
+  margin-top: .1%;
 }
 
 .line {
@@ -22,9 +23,31 @@
   height: 1px;
   border: none;
   width: 35%;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 30px;
 }
+
+.text.offScreen {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
+}
+
+.text.onScreen {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.line.offScreen {
+  width: 0%;
+  transition: width 1s;
+}
+
+.line.onScreen {
+  width: 35%;
+}
+
+
 
 @media (max-width: 800px) {
   .container {

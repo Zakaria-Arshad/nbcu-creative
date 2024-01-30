@@ -1,71 +1,41 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
 import styles from "../css-styles/OurPartners.module.css";
 
 // "Our Partners" component, used on Home Page.
-export default function OurPartners() {
+export default function OurPartners( {props} ) {
   // Text animation variants
-  const textVariants = {
-    offScreen: { y: 50, opacity: 0 },
-    onScreen: { y: 0, opacity: 1, transition: { duration: 1 } },
-  };
+  const containerRef = useRef(null);
 
-  // Line animation variants
-  const lineVariants = {
-    offScreen: { width: "0%" },
-    onScreen: { width: "35%", transition: { duration: 1 } },
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.onScreen);
+          } else {
+            entry.target.classList.remove(styles.onScreen);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // Apply the observer to the children elements
+    const elements = containerRef.current.querySelectorAll(`.${styles.text}, .${styles.line}`);
+    elements.forEach((el) => observer.observe(el));
+
+    return () => elements.forEach((el) => observer.unobserve(el));
+  }, []);
 
   return (
-    <div className={styles.container}>
-      <motion.div
-        className={styles.text}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={textVariants}
-      >
-        our partners span
-        <br />
-        the company
-      </motion.div>
-      <br />
-      <motion.hr
-        className={styles.line}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={lineVariants}
-      />
-      <motion.div
-        className={styles.text}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={textVariants}
-      >
-        which makes us
-        <br />
-        look good
-      </motion.div>
-      <br />
-      <motion.hr
-        className={styles.line}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={lineVariants}
-      />
-      <motion.div
-        className={styles.text}
-        initial="offScreen"
-        whileInView="onScreen"
-        variants={textVariants}
-      >
-        so do lots of
-        <br />
-        industry awards for
-        <br />
-        creative excellence
-      </motion.div>
+    <div className={styles.container} ref={containerRef}>
+      {props.map((prop, index) => (
+        <React.Fragment key={index}>
+          {prop}
+        </React.Fragment>
+      ))}
     </div>
   );
 }

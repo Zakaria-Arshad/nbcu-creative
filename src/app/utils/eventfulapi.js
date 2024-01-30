@@ -1,8 +1,9 @@
 import styles from '../css-styles/EventfulComponent.module.css';
+import styles_2 from '../css-styles/LoveIdeasMakeThings.module.css';
+import parse, { domToReact } from 'html-react-parser';
 import React from 'react';
-import { parseDescriptionData } from './eventfulapi2';
 
-export const parseData = (eventfulJSON) => {
+export const parseEventfulData = (eventfulJSON) => {
     for (let i = 0; i < Object.keys(eventfulJSON).length; i++) {
         let key = Object.keys(eventfulJSON)[i];
         if (key === 'title') {
@@ -27,3 +28,22 @@ export const parseData = (eventfulJSON) => {
         } 
         return eventfulJSON; 
     }
+
+const parseDescriptionData = (description) => {
+  const newList = [];
+  const htmlString = description;
+  parse(htmlString, {
+      replace: (domNode) => {
+          if (domNode.type === 'tag') {
+              if (domNode.name === 'p') {
+                  newList.push(<p className={`${styles_2.text} ${styles_2.offScreen}`}>{domToReact(domNode.children)}</p>)
+              } else if (domNode.name === 'hr') {
+                  newList.push(<hr className={`${styles_2.line} ${styles_2.offScreen}`} />)
+              }
+
+          }
+      }
+
+  })
+  return newList;
+}

@@ -1,34 +1,34 @@
-import React from 'react';
-import styles from '../css-styles/ThinkersComponent.module.css';
-import styles_2 from '../css-styles/WeHelpBusinessesGrow.module.css';
+import styles from '../css-styles/ConnectedComponent.module.css';
+import styles_2 from '../css-styles/OurPartners.module.css'
 import parse, { domToReact } from 'html-react-parser';
+import React from 'react';
 
-export const parseThinkersData = (thinkersJSON) => {
-    for (let i = 0; i < Object.keys(thinkersJSON).length; i++) {
-        let key = Object.keys(thinkersJSON)[i];
+export const parseConnectedData = (connectedJSON) => {
+    for (let i = 0; i < Object.keys(connectedJSON).length; i++) {
+        let key = Object.keys(connectedJSON)[i];
         if (key === 'title') {
-            const titleList = thinkersJSON[key].split('\r\n');
+            const titleList = connectedJSON[key].split('\r\n');
             const newList = [];
             for (let j = 0; j < titleList.length; j++) {
                 newList.push(<div className={`${styles.title_1} ${styles.offScreen}`}>{titleList[j]}</div>);
             }
-            thinkersJSON[key] = newList;
+            connectedJSON[key] = newList;
         }
         else if (key === 'subHeading') {
-            const subHeadingList = thinkersJSON[key].split('\r\n');
+            const subHeadingList = connectedJSON[key].split('\r\n');
             const newList = [];
             for (let j = 0; j < subHeadingList.length; j++) {
                 newList.push(<div className={`${styles.subtitle_1} ${styles.offScreen}`}>{subHeadingList[j]}</div>);
             }
-            thinkersJSON[key] = newList;
+            connectedJSON[key] = newList;
         }
         else if (key === 'homeDescription') {
-            thinkersJSON[key] = parseDescriptionData(thinkersJSON[key]);
+            connectedJSON[key] = parseDescriptionData(connectedJSON[key]);
         }
         } 
-        return thinkersJSON; 
+        return connectedJSON; 
     }
-    
+
 const parseDescriptionData = (description) => {
     const newList = [];
     const htmlString = description;
@@ -37,10 +37,12 @@ const parseDescriptionData = (description) => {
             if (domNode.type === 'tag') {
                 if (domNode.name === 'p') {
                     newList.push(<p className={`${styles_2.text} ${styles_2.offScreen}`}>{domToReact(domNode.children)}</p>)
+                } else if (domNode.name === 'hr') {
+                    newList.push(<hr className={`${styles_2.line} ${styles_2.offScreen}`} />)
                 }
+    
             }
         }
-
     })
     return newList;
-}
+    }
