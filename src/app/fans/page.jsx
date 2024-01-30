@@ -3,13 +3,22 @@ import Header from "../components/Header";
 import BigFansComponent from "../components/BigFansComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
+
+import { parseBigFansData } from "../utils/bigfansapi";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
+
+  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
+  const listingPageData = await listingPageRes.json()
+
+  const bigfansData = listingPageData.data[3]
+  const updatedBigFansData = parseBigFansData(bigfansData);
+
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return FooterData;
+  return [updatedBigFansData, FooterData];
 }
 
 export const metadata = {
@@ -39,11 +48,14 @@ export default async function Fans() {
     "Sochi Olympics",
     "London Olympics",
   ];
-  const FooterData = await getData();
+  const data = await getData();
+  const bigfansData = data[0];
+  const FooterData = data[1];
+
   return (
     <>
       <Header />
-      <BigFansComponent enable={false} />
+      <BigFansComponent props={bigfansData} enable={false} />
       <FeaturedComponent images={images} titles={titles} />
       <Footer props={FooterData}/>
     </>

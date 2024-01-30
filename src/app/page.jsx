@@ -1,4 +1,3 @@
-import styles from "./page.module.css";
 import Header from "./components/Header";
 import FirstComponent from "./components/FirstComponent";
 import EventfulComponent from "./components/EventfulComponent";
@@ -17,6 +16,7 @@ import { convertFooterHTMLToReact } from "./utils/footerapi";
 import { parseEventfulData } from "./utils/eventfulapi"
 import { parseThinkersData } from "./utils/thinkersapi";
 import { parseConnectedData } from "./utils/connectedapi";
+import { parseBigFansData } from "./utils/bigfansapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
@@ -36,8 +36,11 @@ async function getData() { // get all images
   const connectedData = listingPageData.data[2]
   const updatedConnectedData = parseConnectedData(connectedData);
 
+  const bigfansData = listingPageData.data[3]
+  const updatedBigFansData = parseBigFansData(bigfansData);
+
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return [FirstComponentData, updatedEventfulData, updatedThinkersData, updatedConnectedData, FooterData];
+  return [FirstComponentData, updatedEventfulData, updatedThinkersData, updatedConnectedData, updatedBigFansData, FooterData];
 }
 
 export const metadata = {
@@ -53,7 +56,8 @@ export default async function Home() {
   const EventfulComponentData = data[1];
   const ThinkersComponentData = data[2];
   const ConnectedComponentData = data[3];
-  const FooterData = data[4];
+  const BigFansComponentData = data[4];
+  const FooterData = data[5];
 
   return (
     <>
@@ -65,8 +69,8 @@ export default async function Home() {
       <WeHelpBusinessesGrow props={ThinkersComponentData.homeDescription}/>
       <ConnectedComponent props={ConnectedComponentData} enable={true} />
       <OurPartners props={ConnectedComponentData.homeDescription} />
-      <BigFansComponent enable={true} />
-      <NoYadaYada />
+      <BigFansComponent props={BigFansComponentData} enable={true} />
+      <NoYadaYada props={BigFansComponentData.homeDescription}/>
       <Footer props={FooterData}/>
     </>
   );

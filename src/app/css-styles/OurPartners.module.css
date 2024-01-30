@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.text {
+.text, .text_2, .text_3 {
   -webkit-text-stroke: 0.5px #fc5a16;
   color: #fff;
   text-shadow: 0px 0px 0 #fc5a16,

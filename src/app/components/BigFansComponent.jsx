@@ -1,27 +1,44 @@
 "use client"; // necessary to useState. client component instead of server component
 
-import { React } from "react";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../css-styles/BigFansComponent.module.css";
 
 // Returns "We're Big Fans" component. Has enable prop to disable view button and blue stripe."
-export default function BigFansComponent({ enable }) {
-  // Text animation variants
-  const allVariants = {
-    offScreen: { y: 50, opacity: 0 },
-    onScreen: { y: 0, opacity: 1, transition: { duration: 0.5 } },
-  };
+export default function BigFansComponent({ props, enable }) {
+  const imageRef = useRef(null);
+  const textRef = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.onScreen)
+          } else {
+            entry.target.classList.remove(styles.onScreen)
+          }
+        }) 
+      }, { threshold: 0.5 }
+    )
+
+    const imageElements = imageRef.current.querySelectorAll(`.${styles.image}`)
+    const textElements = textRef.current.querySelectorAll(`.${styles.title_1}, .${styles.subtitle_1}, .${styles.view_button}`)
+    imageElements.forEach((el) => observer.observe(el))
+    textElements.forEach((el) => observer.observe(el)) 
+    return () => {
+      imageElements.forEach((el) => observer.unobserve(el))
+      textElements.forEach((el) => observer.unobserve(el))
+    }
+  }, [])
 
   return (
-    <div className={styles.container}>
-      <div className={styles.image_container}>
-        <motion.img
+    <div id="targetComponent" className={styles.container}>
+      <div className={styles.image_container} ref={imageRef}>
+        <img
           className={styles.image}
-          initial={{ y: 50 }}
-          whileInView={{ y: 0, transition: { duration: 0.5 } }}
-          src="https://d2mf4l4ba7pnlp.cloudfront.net/images/blacklistheader.png"
-        ></motion.img>
+          src={props.image.url}
+        ></img>
         {enable === true ? (
           <img
             className={styles.blue_stripe}
@@ -29,40 +46,24 @@ export default function BigFansComponent({ enable }) {
           ></img>
         ) : null}
       </div>
-      <div className={styles.text_container}>
-        <motion.div
-          className={styles.title_container}
-          variants={allVariants}
-          initial="offScreen"
-          whileInView="onScreen"
-        >
-          <div className={styles.title_1}>we&rsquo;re</div>
-          <div className={styles.title_2}>big fans</div>
-        </motion.div>
-        <motion.div
-          className={styles.subtitle_container}
-          variants={allVariants}
-          initial="offScreen"
-          whileInView="onScreen"
-        >
-          <div className={styles.subtitle_1}>bringing our A-game to sports</div>
-          <div className={styles.subtitle_2}>and entertainment brands</div>
-        </motion.div>
-        <motion.div
-          className={styles.button_container}
-          variants={allVariants}
-          initial="offScreen"
-          whileInView="onScreen"
-        >
+      <div className={styles.text_container} ref={textRef}>
+        <div className={styles.title_container}>
+          {props.title}
+        </div>
+        <div className={styles.subtitle_container}>
+          {props.subHeading}
+        </div>
+        <div className={styles.button_container}>
           {enable === true ? (
             <Link href="/fans">
-              <div className={styles.view_button}>
+              <div className={`${styles.view_button} ${styles.offScreen}`}>
                 <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
               </div>
             </Link>
           ) : null}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
 }
+
