@@ -22,7 +22,7 @@ async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
 
-  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
+  const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" })
   const listingPageData = await listingPageRes.json()
 
   const FirstComponentData = convertHeaderHTMLToReact(data[1].data.header) 

@@ -6,17 +6,25 @@ import Footer from "../components/Footer";
 
 import { parseThinkersData } from "../utils/thinkersapi";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
+import { parseImageGridData } from "../utils/imagegridapi";
+
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
-  const listingPageRes = await fetch(process.env.BASE_API_URL_2, { cache: "force-cache" })
   const data = await res.json()
+
+  const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" })
   const listingPageData = await listingPageRes.json()
+
+  const blockRes = await fetch (`${process.env.BASE_API_URL_2}=were-thinkers-who-do`, { cache: "force-cache" })
+  const blockData = await blockRes.json()
+  const featuredArray = parseImageGridData(blockData.data.contents)
+
   const thinkersData = listingPageData.data[1]
   const updatedThinkersData = parseThinkersData(thinkersData);
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
 
-  return [updatedThinkersData, FooterData];
+  return [updatedThinkersData, featuredArray, FooterData];
 }
 
 export const metadata = {
@@ -67,13 +75,14 @@ export default async function Thinkers() {
 
   const data = await getData()
   const ThinkersComponentData = data[0];
-  const FooterData = data[1];
+  const featuredArray = data[1];
+  const FooterData = data[2];
 
   return (
     <>
       <Header />
       <ThinkersComponent props={ThinkersComponentData} enable={false} />
-      <FeaturedComponent images={images} titles={titles} />
+      <FeaturedComponent props={featuredArray} />
       <Footer props={FooterData}/>
     </>
   );

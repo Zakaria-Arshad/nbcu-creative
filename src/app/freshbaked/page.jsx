@@ -4,12 +4,18 @@ import FreshBakedComponent from "../components/FreshBakedComponent";
 import FeaturedComponent from "../components/FeaturedComponent";
 import Footer from "../components/Footer";
 import { convertFooterHTMLToReact } from "../utils/footerapi";
+import { parseImageGridData } from "../utils/imagegridapi";
 
 async function getData() { // get all images
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
+
+  const blockRes = await fetch (`${process.env.BASE_API_URL_2}=fresh-baked`, { cache: "force-cache" })
+  const blockData = await blockRes.json()
+  const featuredArray = parseImageGridData(blockData.data.contents)
+
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return FooterData;
+  return [featuredArray, FooterData];
 }
 
 export const metadata = {
@@ -34,13 +40,15 @@ export default async function FreshBaked() {
     "Jeff Shell Town Hall: A Thank You",
   ];
 
-  const FooterData = await getData();
+  const data = await getData();
+  const featuredArray = data[0];
+  const FooterData = data[1];
   
   return (
     <>
       <Header />
       <FreshBakedComponent />
-      <FeaturedComponent images={images} titles={titles} />
+      <FeaturedComponent props={featuredArray} />
       <Footer props={FooterData}/>
     </>
   );
