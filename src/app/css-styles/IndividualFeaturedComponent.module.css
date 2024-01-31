@@ -1,0 +1,67 @@
+.container {
+    min-height: 50vh; /* can change */
+    margin: 0;
+    padding: 0;   
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.title_container {
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: 3vw;
+}
+
+.title {
+    color: #ff551a;
+}
+
+.text_container {
+    font-family: MaisonBold, "Helvetica Bold", sans-bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align the items to the top */
+    padding: 20px; /* Add padding if necessary */
+    width: 65%;
+    margin-left: 9%;
+}
+
+.description, .partners, .assets_created {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    max-width: 33%;
+}
+
+.description p {
+    font-weight: bold;
+}
+/* Add specific styling to your elements if needed */
+.description p, .partners p, .assets_created p {
+    margin: 0; 
+}
+
+
+@media (max-width: 1000px) {
+    .title_container {
+        margin-top: 20%;
+    }
+
+    .text_container {
+        flex-direction: column;
+    }
+
+    .description, .partners, .assets_created {
+        max-width: 100%;
+        margin-top: 8%
+    }
+}
+
+@media (max-width: 450px) {
+    .title_container {
+        margin-top: 30%;
+        margin-left: 13%
+    }
+}
