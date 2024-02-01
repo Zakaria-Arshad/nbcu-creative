@@ -36,7 +36,6 @@ export default function Related( {props} ) {
         </div>
         <div className={styles.return}>
             <Link href={`${props.returnto.alias}`}>RETURN TO {props.returnto.title.toUpperCase()}</Link>
-
         </div> 
         </div>  
     )
