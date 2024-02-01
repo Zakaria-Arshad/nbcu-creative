@@ -60,7 +60,7 @@ export default function ConnectedComponent({ props, enable }) {
           className={styles.button_container}
         >
           {enable === true ? (
-            <Link href="/connected">
+            <Link href="/were-connected">
               <div className={`${styles.view_button} ${styles.offScreen}`}>
                 <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
               </div>

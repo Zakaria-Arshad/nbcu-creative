@@ -54,7 +54,7 @@ export default function EventfulComponent({ props, enable }) {
         </div>
         <div className={styles.button_container}>
           {enable === true ? (
-            <Link href="/eventful">
+            <Link href="/were-eventful">
               <div className={`${styles.view_button} ${styles.offScreen}`}>
                 <img src="https://d2mf4l4ba7pnlp.cloudfront.net/images/viewit.svg"></img>
               </div>

@@ -11,13 +11,13 @@ export const parseIndividualFeatured = (featuredJSON) => {
 
     featuredJSON['partners'] = parse(featuredJSON['partners'], {
         replace: (domNode) => {
-            return <p className={styles.partners}>{domToReact(domNode.children)}</p>;
+            return <p>{domToReact(domNode.children)}</p>;
         }
     });
 
     featuredJSON['assetsCreated'] = parse(featuredJSON['assetsCreated'], {
         replace: (domNode) => {
-            return <p className={styles.assets_created}>{domToReact(domNode.children)}</p>;
+            return <p>{domToReact(domNode.children)}</p>;
         }
     });
 
