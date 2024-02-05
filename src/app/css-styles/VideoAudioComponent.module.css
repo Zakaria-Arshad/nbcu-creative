@@ -8,4 +8,6 @@
 
 .item {
     width: 100%;
+    max-width: 100%; /* Ensures it doesn't exceed the container's width */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }

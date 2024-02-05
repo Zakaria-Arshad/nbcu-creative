@@ -13,6 +13,7 @@ export const parseImageandVideoData = (imageVideoJSONList) => {
               src={video.url} 
               className={styles.item} 
               allowFullScreen 
+              style={{aspectRatio: 16 / 9}} /* Adjust the aspect ratio as needed */
               key={res.length} // Using the current length of res as a key
             />
           );

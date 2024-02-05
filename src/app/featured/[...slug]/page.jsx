@@ -20,7 +20,6 @@ export default async function Featured( {params} ) {
         const data_2 = await res_2.json()
         const IndividualData = parseIndividualFeatured(data_2.data)
         const ImageVideoData = parseImageandVideoData(data_2.data.detailDescription)
-        console.log(ImageVideoData)
         return [IndividualData, ImageVideoData, FooterData]
     }
 
