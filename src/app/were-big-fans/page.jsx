@@ -9,22 +9,26 @@ import { convertFooterHTMLToReact } from "../utils/footerapi";
 import { parseImageGridData } from "../utils/imagegridapi";
 
 
-async function getData() { // get all images
-  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
-  const data = await res.json()
+async function getData() {
+  try {
+    const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" });
+    const data = await res.json();
 
-  const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" })
-  const listingPageData = await listingPageRes.json()
+    const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" });
+    const listingPageData = await listingPageRes.json();
 
-  const blockRes = await fetch (`${process.env.BASE_API_URL_2}=were-big-fans`, { cache: "force-cache" })
-  const blockData = await blockRes.json()
-  const featuredArray = parseImageGridData(blockData.data.contents)
+    const blockRes = await fetch (`${process.env.BASE_API_URL_2}=were-big-fans`, { cache: "force-cache" });
+    const blockData = await blockRes.json();
+    const featuredArray = parseImageGridData(blockData.data.contents);
 
-  const bigfansData = listingPageData.data[3]
-  const updatedBigFansData = parseBigFansData(bigfansData);
+    const bigfansData = listingPageData.data[3];
+    const updatedBigFansData = parseBigFansData(bigfansData);
 
-  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return [updatedBigFansData, featuredArray, FooterData];
+    const FooterData = convertFooterHTMLToReact(data[1].data.footer);
+    return [updatedBigFansData, featuredArray, FooterData];
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 }
 
 export const metadata = {

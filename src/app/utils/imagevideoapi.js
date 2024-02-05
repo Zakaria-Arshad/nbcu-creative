@@ -6,14 +6,14 @@ export const parseImageandVideoData = (imageVideoJSONList) => {
   imageVideoJSONList.forEach(item => {
     if (item.type === 'Video' && item.Video) {
       item.Video.forEach(video => {
-        if (video.url) { // Assuming this is the correct property based on previous discussion
+        if (video.url) { 
           // Directly push React component for each video
           res.push(
             <iframe 
               src={video.url} 
               className={styles.item} 
               allowFullScreen 
-              style={{aspectRatio: 16 / 9}} /* Adjust the aspect ratio as needed */
+              style={{aspectRatio: 16 / 9}} 
               key={res.length} // Using the current length of res as a key
             />
           );
@@ -22,7 +22,6 @@ export const parseImageandVideoData = (imageVideoJSONList) => {
     } else if (item.type === 'Image' && item.Image) {
       item.Image.forEach(image => {
         if (image.url) {
-          // Directly push React component for each image
           res.push(
             <img 
               src={image.url} 

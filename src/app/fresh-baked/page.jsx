@@ -7,6 +7,7 @@ import { convertFooterHTMLToReact } from "../utils/footerapi";
 import { parseImageGridData } from "../utils/imagegridapi";
 
 async function getData() { // get all images
+  try {
   const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
   const data = await res.json()
 
@@ -16,6 +17,9 @@ async function getData() { // get all images
 
   const FooterData = convertFooterHTMLToReact(data[1].data.footer)
   return [featuredArray, FooterData];
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const metadata = {

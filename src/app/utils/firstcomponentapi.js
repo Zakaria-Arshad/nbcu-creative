@@ -2,24 +2,6 @@ import parse, { domToReact } from 'html-react-parser';
 import styles from '../css-styles/FirstComponent.module.css'
 import React from 'react';
 
-// export const convertHeaderToTextArray = (htmlString) => {
-//     const textArray = [];
-
-//     parse(htmlString, {
-//         replace: (domNode) => {
-//             if (domNode.type === 'tag' && domNode.children && domNode.children.length){
-//                 domNode.children.forEach(child => {
-//                     if (child.type === 'text') {
-//                         textArray.push(child.data);
-//                     } 
-//                 })
-//             }
-//         }
-//     })
-
-//     return textArray;
-// }
-
 export const convertHeaderHTMLToReact = (htmlString) => {
   return parse(htmlString, {
     replace: (domNode) => {

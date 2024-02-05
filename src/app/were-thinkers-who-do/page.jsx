@@ -9,22 +9,26 @@ import { convertFooterHTMLToReact } from "../utils/footerapi";
 import { parseImageGridData } from "../utils/imagegridapi";
 
 
-async function getData() { // get all images
-  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
-  const data = await res.json()
+async function getData() {
+  try {
+    const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" });
+    const data = await res.json();
 
-  const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" })
-  const listingPageData = await listingPageRes.json()
+    const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" });
+    const listingPageData = await listingPageRes.json();
 
-  const blockRes = await fetch (`${process.env.BASE_API_URL_2}=were-thinkers-who-do`, { cache: "force-cache" })
-  const blockData = await blockRes.json()
-  const featuredArray = parseImageGridData(blockData.data.contents)
+    const blockRes = await fetch (`${process.env.BASE_API_URL_2}=were-thinkers-who-do`, { cache: "force-cache" });
+    const blockData = await blockRes.json();
+    const featuredArray = parseImageGridData(blockData.data.contents);
 
-  const thinkersData = listingPageData.data[1]
-  const updatedThinkersData = parseThinkersData(thinkersData);
-  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
+    const thinkersData = listingPageData.data[1];
+    const updatedThinkersData = parseThinkersData(thinkersData);
 
-  return [updatedThinkersData, featuredArray, FooterData];
+    const FooterData = convertFooterHTMLToReact(data[1].data.footer);
+    return [updatedThinkersData, featuredArray, FooterData];
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 }
 
 export const metadata = {

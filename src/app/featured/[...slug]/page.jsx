@@ -11,17 +11,24 @@ import { parseIndividualFeatured } from "@/app/utils/individualfeaturedapi";
 
 export default async function Featured( {params} ) {
     async function getData() {
-        const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
-        const data = await res.json()
-        const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-
-        const apistring = params.slug[0] + "/" + params.slug[1];
-        const res_2 = await fetch(`${process.env.BASE_API_URL_2}=${apistring}`, { cache: "force-cache" })
-        const data_2 = await res_2.json()
-        const IndividualData = parseIndividualFeatured(data_2.data)
-        const ImageVideoData = parseImageandVideoData(data_2.data.detailDescription)
-        return [IndividualData, ImageVideoData, FooterData]
-    }
+        try {
+          const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" });
+          if (!res.ok) return null; 
+          const data = await res.json();
+          const FooterData = convertFooterHTMLToReact(data[1].data.footer);
+      
+          const apistring = params.slug[0] + "/" + params.slug[1];
+          const res_2 = await fetch(`${process.env.BASE_API_URL_2}=${apistring}`, { cache: "force-cache" });
+          if (!res_2.ok) return null; 
+          const data_2 = await res_2.json();
+          const IndividualData = parseIndividualFeatured(data_2.data);
+          const ImageVideoData = parseImageandVideoData(data_2.data.detailDescription);
+      
+          return [IndividualData, ImageVideoData, FooterData];
+        } catch(error) {
+          console.log(error)
+        }
+      }
 
     const data = await getData()
     const IndividualData = data[0]

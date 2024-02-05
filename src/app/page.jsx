@@ -18,30 +18,37 @@ import { parseThinkersData } from "./utils/thinkersapi";
 import { parseConnectedData } from "./utils/connectedapi";
 import { parseBigFansData } from "./utils/bigfansapi";
 
-async function getData() { // get all images
-  const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" })
-  const data = await res.json()
+async function getData() {
+  try {
+    const res = await fetch(process.env.BASE_API_URL, { cache: "force-cache" });
+    if (!res.ok) throw new Error(`An error occurred: ${res.statusText}`);
+    const data = await res.json();
 
-  const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" })
-  const listingPageData = await listingPageRes.json()
+    const listingPageRes = await fetch(`${process.env.BASE_API_URL_2}=listing_page`, { cache: "force-cache" });
+    if (!listingPageRes.ok) throw new Error(`An error occurred: ${listingPageRes.statusText}`);
+    const listingPageData = await listingPageRes.json();
 
-  const FirstComponentData = convertHeaderHTMLToReact(data[1].data.header) 
+    const FirstComponentData = convertHeaderHTMLToReact(data[1].data.header);
 
-  const eventfulData = listingPageData.data[0]
-  const updatedEventfulData = parseEventfulData(eventfulData);
+    const eventfulData = listingPageData.data[0];
+    const updatedEventfulData = parseEventfulData(eventfulData);
 
-  const thinkersData = listingPageData.data[1]
-  const updatedThinkersData = parseThinkersData(thinkersData);
+    const thinkersData = listingPageData.data[1];
+    const updatedThinkersData = parseThinkersData(thinkersData);
 
-  const connectedData = listingPageData.data[2]
-  const updatedConnectedData = parseConnectedData(connectedData);
+    const connectedData = listingPageData.data[2];
+    const updatedConnectedData = parseConnectedData(connectedData);
 
-  const bigfansData = listingPageData.data[3]
-  const updatedBigFansData = parseBigFansData(bigfansData);
+    const bigfansData = listingPageData.data[3];
+    const updatedBigFansData = parseBigFansData(bigfansData);
 
-  const FooterData = convertFooterHTMLToReact(data[1].data.footer)
-  return [FirstComponentData, updatedEventfulData, updatedThinkersData, updatedConnectedData, updatedBigFansData, FooterData];
+    const FooterData = convertFooterHTMLToReact(data[1].data.footer);
+    return [FirstComponentData, updatedEventfulData, updatedThinkersData, updatedConnectedData, updatedBigFansData, FooterData];
+  } catch (error) {
+    console.error(error); 
+  }
 }
+
 
 export const metadata = {
   // set screen tab title
