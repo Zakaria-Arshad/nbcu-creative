@@ -3,9 +3,11 @@
 import React, { useEffect, useRef } from "react";
 import styles from "../css-styles/LoveIdeasMakeThings.module.css";
 
+// Returns "Love Ideas Make Things" component. Takes in an array of text elements.
 export default function LoveIdeasMakeThings({ props }) {
   const containerRef = useRef(null);
 
+  // useEffect for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

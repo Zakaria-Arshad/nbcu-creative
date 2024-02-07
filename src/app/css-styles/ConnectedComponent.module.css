@@ -1,5 +1,5 @@
 .container {
-  min-height: 50vh; /* can change */
+  min-height: 50vh; 
   margin: 0;
   padding: 0;
   display: flex;
@@ -26,7 +26,6 @@
   z-index: 5;
 }
 
-/* image_container and image styles not currently necessary in file*/
 .blue_stripe {
   position: absolute;
   right: 0.1px;

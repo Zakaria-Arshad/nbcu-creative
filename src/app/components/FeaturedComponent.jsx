@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "../css-styles/FeaturedComponent.module.css";
 
 // Returns a grid of images, two in each row (by default) with overlay text on hover
-// Takes in an array of images and titles to display
+// Takes in a prop with image urls and titles
 export default function FeaturedComponent({ props }) {
   return (
     <div className={styles.container}>

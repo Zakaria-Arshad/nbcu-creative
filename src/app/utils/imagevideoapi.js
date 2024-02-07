@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css-styles/VideoAudioComponent.module.css';
+import styles from '../css-styles/VideoImageComponent.module.css';
 
 export const parseImageandVideoData = (imageVideoJSONList) => {
   let res = [];

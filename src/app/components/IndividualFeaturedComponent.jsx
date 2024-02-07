@@ -22,5 +22,4 @@ export default function IndividualFeaturedComponent( {props} ) {
             </div>
         </div>
     )
-    // Your code here
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/app/components/Header";
 import IndividualFeaturedComponent from "@/app/components/IndividualFeaturedComponent";
-import VideoAudioComponent from "@/app/components/VideoAudioComponent";
+import VideoAudioComponent from "@/app/components/VideoImageComponent";
 import Related from "@/app/components/Related";
 import Footer from "@/app/components/Footer";
 
@@ -9,6 +9,8 @@ import { convertFooterHTMLToReact } from "@/app/utils/footerapi";
 import { parseImageandVideoData } from "@/app/utils/imagevideoapi";
 import { parseIndividualFeatured } from "@/app/utils/individualfeaturedapi";
 
+// Dynamic page that fetches data from the API based on slug 
+// and renders the IndividualFeaturedComponent, VideoAudioComponent, Related, and Footer components
 export default async function Featured( {params} ) {
     async function getData() {
         try {

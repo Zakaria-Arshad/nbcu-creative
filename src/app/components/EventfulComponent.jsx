@@ -8,6 +8,8 @@ import styles from "../css-styles/EventfulComponent.module.css";
 export default function EventfulComponent({ props, enable }) {
   const imageRef = useRef(null);
   const textRef = useRef(null);
+
+  // useEffect for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

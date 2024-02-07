@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 // "Fresh Baked" component, used in Fresh Baked subpage.
 export default function FreshBakedComponent() {
-  
   // Variants for text animation
   const allVariants = {
     offScreen: { y: 50, opacity: 0 },

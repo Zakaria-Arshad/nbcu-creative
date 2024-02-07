@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../css-styles/Related.module.css';
 import Link from 'next/link';
 
+// Menu for dynamic pages on navigating between pages
 export default function Related( {props} ) {
     return (
         <div className={styles.outside_container}>

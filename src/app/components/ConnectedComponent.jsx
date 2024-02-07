@@ -8,6 +8,7 @@ import styles from "../css-styles/ConnectedComponent.module.css";
 export default function ConnectedComponent({ props, enable }) {
   const imageRef = useRef(null);
   const textRef = useRef(null);
+  // useEffect for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

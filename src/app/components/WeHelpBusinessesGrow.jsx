@@ -7,6 +7,7 @@ import styles from "../css-styles/WeHelpBusinessesGrow.module.css";
 export default function WeHelpBusinessesGrow( { props } ) {
   const containerRef = useRef(null);
 
+  // useEffect for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

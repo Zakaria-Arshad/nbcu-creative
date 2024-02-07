@@ -1,5 +1,5 @@
 .container {
-  min-height: 50vh; /* can change */
+  min-height: 50vh;
   margin: 0;
   padding: 0;
   display: flex;

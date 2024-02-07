@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '../css-styles/VideoAudioComponent.module.css';
+import styles from '../css-styles/VideoImageComponent.module.css';
 
-export default function VideoAudioComponent({ props }) {
+// Returns list of Videos and Images from Props
+export default function VideoImageComponent({ props }) {
     return (
         <div className={styles.container}>
             {props.map((item, index) => (

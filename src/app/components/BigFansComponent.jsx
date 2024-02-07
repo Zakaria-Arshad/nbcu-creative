@@ -9,6 +9,7 @@ import styles from "../css-styles/BigFansComponent.module.css";
 export default function BigFansComponent({ props, enable }) {
   const imageRef = useRef(null);
   const textRef = useRef(null);
+  // useEffect for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

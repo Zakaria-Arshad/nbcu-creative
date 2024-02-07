@@ -2,7 +2,7 @@
   position: fixed;
   background-color: #ff551a;
   height: 20px;
-  width: 100%; /*adjusting right side of bar to match other elements*/
+  width: 100%; 
   top: 0;
   z-index: 10; /*keeps bar on top of other elements*/
 }
@@ -17,9 +17,9 @@
 }
 
 .nbcu_logo {
-  height: 15vw; /* responsive to viewport height */
+  height: 15vw; 
   width: auto;
-  margin-left: 4.5vw; /* responsive to viewport width */
+  margin-left: 4.5vw;
 }
 
 .navbar_icon {
@@ -43,7 +43,7 @@
   background-color: black;
   margin: 4px 0; /* spacing */
   border-radius: 5px;
-  transition: width 0.3s ease; /* Smooth transition for width change */
+  transition: width 0.3s ease; 
 }
 
 .parallelogram_container {
@@ -102,8 +102,8 @@
   display: block;
   left: 50%;
   transform: translateX(-50%); /* Centers the text.  */
-  color: #ffffff; /* Example text color */
-  font-size: 1.8vw; /* Example font size */
+  color: #ffffff; 
+  font-size: 1.8vw; 
 }
 
 .menu_item_1 {
@@ -204,13 +204,13 @@
   .menu_item_3,
   .menu_item_4,
   .menu_item_5 {
-    font-size: 3vw; /* Example font size */
+    font-size: 3vw; 
   }
 }
 
 @media (max-width: 450px) {
   .nbcu_logo {
-    height: 30vw; /* Larger size for smaller screens */
+    height: 30vw; 
   }
 
   .navbar_icon {
@@ -228,6 +228,6 @@
   .menu_item_3,
   .menu_item_4,
   .menu_item_5 {
-    font-size: 4vw; /* Example font size */
+    font-size: 4vw; 
   }
 }

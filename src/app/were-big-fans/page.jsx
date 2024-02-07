@@ -38,27 +38,6 @@ export const metadata = {
 };
 
 export default async function Fans() {
-  const images = [
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/blacklist-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/buble-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/oly-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/2018WorldCup-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/SuperBowl-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/Rio-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/Sochi-Tile.jpg",
-    "https://d2mf4l4ba7pnlp.cloudfront.net/images/detailpages/London-Tile.jpg",
-  ];
-  const titles = [
-    "The Blacklist",
-    "Michael Buble's Christmas in the City",
-    "PyeongChang Olympics",
-    "2018 World Cup",
-    "Super Bowl 50",
-    "Rio Olympics",
-    "Sochi Olympics",
-    "London Olympics",
-  ];
-  
   const data = await getData();
   const bigfansData = data[0];
   const featuredArray = data[1];

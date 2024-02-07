@@ -1,10 +1,10 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the boxes horizontally */
-  align-items: flex-start; /* Align the boxes to the top */
+  justify-content: center; 
+  align-items: flex-start; 
   max-width: 85%;
-  margin: 0 auto; /* Centers the container */
+  margin: 0 auto; 
 }
 
 .box {
@@ -21,7 +21,6 @@
   display: block;
 }
 
-/* Base overlay styling */
 .overlay {
   position: absolute;
   top: 0;
@@ -59,7 +58,6 @@
   white-space: normal; 
 }
 
-/* Hover effect on the box */
 .box:hover .overlay::before {
   opacity: 0.7; /* Background becomes semi-transparent */
 }
@@ -69,7 +67,6 @@
 }
 
 @media (max-width: 990px) {
-  /* One image per row */
   .container {
     max-width: 80%;
   }
