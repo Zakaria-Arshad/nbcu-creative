@@ -8,10 +8,10 @@ export default function Related( {props} ) {
         <div className={styles.outside_container}>
         <div className={styles.container}>
             <div className={styles.text_container}>
-                <Link href={`/featured/${props.related.prev.alias}`}>
+                <Link href={`/featured/${props.related.prev.alias}`} className={styles.linkMargin}>
                     ← PREVIOUS
                 </Link>
-                <Link href={`/featured/${props.related.next.alias}`}>
+                <Link href={`/featured/${props.related.next.alias}`} className={styles.linkMargin_2}>
                     <div>NEXT →</div>
                 </Link>
             </div>
@@ -24,7 +24,7 @@ export default function Related( {props} ) {
                         </div>
                     </Link>
                 </div>
-                <div className={styles.box}>
+                <div className={styles.box_2}>
                     <Link href={`/featured/${props.related.next.alias}`}>
                         <img className={styles.image} src={props.related.next.image.url}></img>
                         <div className={styles.overlay}>

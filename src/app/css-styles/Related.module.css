@@ -16,7 +16,7 @@
     margin-left: 23%;
 }
 
-.box {
+.box, .box_2 {
     position: relative;
     width: 48%;
     overflow: hidden;
@@ -67,11 +67,11 @@
   }
   
   /* Hover effect on the box */
-  .box:hover .overlay::before {
+  .box:hover .overlay::before, .box_2:hover .overlay::before{
     opacity: 0.7; /* Background becomes semi-transparent */
   }
   
-  .box:hover .overlay_content {
+  .box:hover .overlay_content, .box_2:hover .overlay_content{
     opacity: 1; /* Text becomes fully opaque */
   }
 @media(max-width: 990px) {
@@ -97,7 +97,7 @@
 
     /* Remove hover effect */
     .box:hover .overlay::before,
-    .box:hover .overlay_content {
+    .box:hover .overlay_content, .box_2:hover .overlay::before, .box_2:hover .overlay_content{
     opacity: 1; /* Keep text visible */
     }
     }
@@ -106,7 +106,14 @@
     .container {
         display: flex;
         flex-direction: column; 
-        width: 80%;
+        width: 90%;
+    }
+    
+    .box, .linkMargin {
+      margin-left: -10%;
+    }
+    .box_2, .linkMargin_2 {
+      margin-right: -10%
     }
 
     }
