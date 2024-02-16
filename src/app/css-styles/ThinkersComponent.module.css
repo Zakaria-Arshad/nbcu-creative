@@ -75,13 +75,13 @@
   float: left;
 }
 
-.title_1.offScreen, .subtitle_1.offScreen, .view_button.offScreen {
+.title_1.offScreen, .subtitle_1.offScreen, .view_button.offScreen, .image.offScreen, .blue_stripe.offScreen {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s, transform 1s;
 }
 
-.title_1.onScreen, .subtitle_1.onScreen, .view_button.onScreen {
+.title_1.onScreen, .subtitle_1.onScreen, .view_button.onScreen, .image.onScreen, .blue_stripe.onScreen {
   opacity: 1;
   transform: translateY(0);
 }

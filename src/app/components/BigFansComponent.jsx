@@ -20,10 +20,10 @@ export default function BigFansComponent({ props, enable }) {
             entry.target.classList.remove(styles.onScreen)
           }
         }) 
-      }, { threshold: 0.5 }
+      }, { threshold: 0.2 }
     )
 
-    const imageElements = imageRef.current.querySelectorAll(`.${styles.image}`)
+    const imageElements = imageRef.current.querySelectorAll(`.${styles.image}, .${styles.blue_stripe}`)
     const textElements = textRef.current.querySelectorAll(`.${styles.title_1}, .${styles.subtitle_1}, .${styles.view_button}`)
     imageElements.forEach((el) => observer.observe(el))
     textElements.forEach((el) => observer.observe(el)) 
@@ -37,12 +37,12 @@ export default function BigFansComponent({ props, enable }) {
     <div id="targetComponent" className={styles.container}>
       <div className={styles.image_container} ref={imageRef}>
         <img
-          className={styles.image}
+          className={`${styles.image} ${styles.offScreen}`}
           src={props.image.url}
         ></img>
         {enable === true ? (
           <img
-            className={styles.blue_stripe}
+            className={`${styles.blue_stripe} ${styles.offScreen}`}
             src="https://d2mf4l4ba7pnlp.cloudfront.net/images/bluestripe.png"
           ></img>
         ) : null}
